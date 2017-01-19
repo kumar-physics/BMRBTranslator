@@ -4,12 +4,16 @@ Created on Jan 18, 2017
 @author: root
 '''
 
-import ntpath,os,csv,re,time,datetime
+import ntpath,os,csv,re,time,datetime,string,sys
+(scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
+sys.path.append(scriptPath+'/../PyNMRSTAR') #NMR-STAR and NEF-Parser added as a submodule and imported into this project. This is a separate git repository
+import bmrb
 
 class BMRBTranslator(object):
     '''
     Main class for BMRBTranslator
     '''
+    __version__=1.0
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
     
@@ -58,9 +62,27 @@ class BMRBTranslator(object):
         '''
         Translates NEF file to NMR-STAR
         '''
+        self.nefFile=inFile
         (self.nefFilePath,self.nefFileName) = ntpath.split(inFile)
         self.logFile = inFile.split("."+self.nefFileName.split(".")[-1])[0]+"_.log"
         self.starFile = inFile.split("."+self.nefFileName.split(".")[-1])[0]+"_.str"
+        self.log = open(self.logFile,'w')
+        self.log.write("\n%s:%s\n"%(string.ljust("Input",25),self.nefFile))
+        self.log.write("%s:%s\n"%(string.ljust("Output",25),self.starFile))
+        self.log.write("%s:%s\n"%(string.ljust("Log ",25),self.logFile))
+        self.log.write("%s:%s\n"%(string.ljust("Translator Version",25),self.__version__))
+        self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
+        self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
+        try:
+            self.nef = bmrb.Entry.from_file(self.nefFile)
+        except Exception as e:
+            self.log.write("%s\t%s"%(self.TimeStamp(time.time()),str(e)))
+            print "Error: Can't parse the input NEF file"
+            print "Check the log",self.logFile
+            self.log.close()
+            exit(1)
+           
+    
         
         
         
@@ -69,10 +91,28 @@ class BMRBTranslator(object):
         '''
         Translates NMR-STAR file NEF
         '''
+        self.starFile=inFile
         (self.starFilePath,self.starFileName) = ntpath.split(inFile)
         self.logFile = inFile.split("."+self.starFileName.split(".")[-1])[0]+"_.log"
-        self.nefFile = inFile.split("."+self.starFileName.split(".")[-1])[0]+"_.str"
-        #print self.logFile
+        self.nefFile = inFile.split("."+self.starFileName.split(".")[-1])[0]+"_.nef"
+        self.log = open(self.logFile,'w')
+        self.log.write("\n%s:%s\n"%(string.ljust("Input",25),self.starFile))
+        self.log.write("%s:%s\n"%(string.ljust("Output",25),self.nefFile))
+        self.log.write("%s:%s\n"%(string.ljust("Log ",25),self.logFile))
+        self.log.write("%s:%s\n"%(string.ljust("Translator Version",25),self.__version__))
+        self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
+        self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
+        try:
+            self.star = bmrb.Entry.from_file(self.starFile)
+        except Exception as e:
+            self.log.write("%s\t%s"%(self.TimeStamp(time.time()),str(e)))
+            print "Error: Can't parse the input NEF file"
+            print "Check the log",self.logFile
+            self.log.close()
+            exit(1)
+            
+        
+    
         
     def ReadMapFile(self):
         '''Reads the NEF_NMRSTAR_equivalence.csv file and create a mapping as a list'''
@@ -138,5 +178,7 @@ class BMRBTranslator(object):
      
         
 if __name__=="__main__":
+    fname=sys.argv[1]
     p=BMRBTranslator()
-    print p.EquivalentAtom('ASN', 'H*')
+    p.NEFtoStar(fname)
+    
