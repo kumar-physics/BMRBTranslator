@@ -5,9 +5,18 @@ Created on Jan 18, 2017
 '''
 
 import ntpath,os,csv,re,time,datetime,string,sys
-(scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
-sys.path.append(scriptPath+'/../PyNMRSTAR') #NMR-STAR and NEF-Parser added as a submodule and imported into this project. This is a separate git repository
-import bmrb
+try:
+    import pynmrstar as bmrb
+except ImportError as e:
+    #print "Using local STAR parser",str(e) 
+    (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
+    sys.path.append(scriptPath+'/../PyNMRSTAR') #NMR-STAR and NEF-Parser added as a submodule and imported into this project. This is a separate git repository
+    try:
+        import bmrb
+    except ImportError as e:
+        print "ERROR: STAR parser from BMRB is not available"
+        print str(e)
+        exit(1)
 
 class BMRBTranslator(object):
     '''
@@ -74,15 +83,43 @@ class BMRBTranslator(object):
         self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
         self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
         try:
+            self.Log("Reading input file")
             self.nef = bmrb.Entry.from_file(self.nefFile)
         except Exception as e:
-            self.log.write("%s\t%s"%(self.TimeStamp(time.time()),str(e)))
+            self.Log("Problem with input file",2)
+            self.Log(str(e),2)
             print "Error: Can't parse the input NEF file"
+            print str(e)
             print "Check the log",self.logFile
             self.log.close()
             exit(1)
            
+        self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
+        for saveframe in self.star:
+            self.details = {}
+            if saveframe.get_tag("sf_category")[0] in self.tagMap[0]:
+                sf = bmrb.Saveframe.from_scratch(saveframe.name)
+            else:
+                self.Log("Saveframe category not found in NEF dictionary")
+        
+        self.log.close()
     
+    
+    def Log(self,txt,flag=0):
+        if flag==0:
+            self.log.write("%s\t%s\n"%(self.TimeStamp(time.time()),txt))
+        elif flag==1:
+            self.log.write("%s\tWARNING:%s\n"%(self.TimeStamp(time.time()),txt))
+        elif flag==2:
+            self.log.write("%s\tERROR:%s\n"%(self.TimeStamp(time.time()),txt))
+        else:
+            print "Logging function takes only three numbers as first argument(0,1,2)"
+            exit(1)
+            
+            
+            
+            
+        
         
         
         
@@ -107,6 +144,7 @@ class BMRBTranslator(object):
         except Exception as e:
             self.log.write("%s\t%s"%(self.TimeStamp(time.time()),str(e)))
             print "Error: Can't parse the input NEF file"
+            print str(e)
             print "Check the log",self.logFile
             self.log.close()
             exit(1)
