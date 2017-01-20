@@ -5,6 +5,7 @@ Created on Jan 18, 2017
 '''
 
 import ntpath,os,csv,re,time,datetime,string,sys
+from Bio.MarkovModel import save
 try:
     import pynmrstar as bmrb
 except ImportError as e:
@@ -71,6 +72,7 @@ class BMRBTranslator(object):
         '''
         Translates NEF file to NMR-STAR
         '''
+        self.softwareSpecificSfID=0
         self.nefFile=inFile
         (self.nefFilePath,self.nefFileName) = ntpath.split(inFile)
         self.logFile = inFile.split("."+self.nefFileName.split(".")[-1])[0]+"_.log"
@@ -93,15 +95,102 @@ class BMRBTranslator(object):
             print "Check the log",self.logFile
             self.log.close()
             exit(1)
+        chains=sorted(list(set(self.nef.get_loops_by_category('nef_sequence')[0].get_tag('chain_code'))))
            
         self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
-        for saveframe in self.star:
+        for saveframe in self.nef:
             self.details = {}
             if saveframe.get_tag("sf_category")[0] in self.tagMap[0]:
                 sf = bmrb.Saveframe.from_scratch(saveframe.name)
+                if saveframe.name == "nef_nmr_meta_data":
+                    sf.add_tag("_Entry.NMR_STAR_version","3.2.0.4")
+                for tag in saveframe.tags:
+                    nef_tag = "%s.%s"%(saveframe.tag_prefix,tag[0])
+                    try:
+                        star_auth_tag = self.tagMap[1][self.tagMap[0].index(nef_tag)]
+                        star_tag = self.tagMap[2][self.tagMap[0].index(nef_tag)]
+                    except ValueError:
+                        self.Log("Tag %s not found in NEF dictionary"%(nef_tag))
+                        self.details[tag[0]] = tag[1]
+                        star_auth_tag = ""
+                        star_tag = ""
+                    if star_auth_tag != "" and star_tag != "":
+                        if star_auth_tag == star_tag:
+                            if  star_auth_tag.split(".")[-1] == "Sf_category":
+                                star_cat = self.tagMap[1][self.tagMap[0].index(tag[1])]
+                                sf.add_tag(star_tag,star_cat)
+                            else:
+                                sf.add_tag(star_tag,tag[1])
+                        else:
+                            sf.add_tag(star_auth_tag,tag[1])
+                            sf.add_tag(star_tag,tag[1])
+                    else:
+                        self.Log("Equivalent STAR tag for %s is empty"%(nef_tag),2)
+                    
+                for loop in saveframe:
+                    lp = bmrb.Loop.from_scratch()
+                    missing_col = []
+                    auth_col=[]
+                    for coln in loop.columns:
+                        nef_tag = "%s.%s"%(loop.category,coln)
+                        try:
+                            star_auth_tag = self.tagMap[1][self.tagMap[0].index(nef_tag)]
+                            star_tag = self.tagMap[2][self.tagMap[0].index(nef_tag)]
+                        except ValueError:
+                            self.Log("Tag %s not found in NEF dictionary"%(nef_tag))
+                            self.details[nef_tag] =  str(loop.get_tag(nef_tag))
+                            star_auth_tag = ""
+                            star_tag = ""
+                        if star_auth_tag != "" and star_tag != "" :
+                            if star_auth_tag != star_tag:
+                                auth_col.append(loop.columns.index(coln))
+                                lp.add_column(star_auth_tag)
+                                lp.add_column(star_tag)
+                            else:
+                                lp.add_column(star_tag)
+                        else:
+                            missing_col.append(loop.columns.index(coln))
+                    atm_id=[i for i in range(len(lp.columns)) if "Atom_ID" in lp.columns[i]]
+                    ent_assembly_id=[i for i in range(len(lp.columns)) if "Entity_assembly_ID" in lp.columns[i]]
+                    auth_asym_id=[i for i in range(len(lp.columns)) if "Auth_asym_ID" in lp.columns[i]]
+                    if sf.category=="assigned_chemical_shifts":
+                        lp.add_column("_Atom_chem_shift.Ambiguity_code")
+                    if sf.category=="general_distance_constraints":
+                        lp.add_column("_Gen_dist_constraint.Member_logic_code")
+                        const_id = 1
+                    
+                            
+                    for dat in loop.data:
+                        if len(auth_col) == 0:
+                            if len(missing_col) == 0:
+                                lp_data = dat[:]
+                            else:
+                                tmp_dat = dat[:]
+                                for m in sorted(missing_col, reverse = True):
+                                    del tmp_dat[m]
+                                lp_data = tmp_dat[:]
+                    
+                            
+                            
             else:
-                self.Log("Saveframe category not found in NEF dictionary")
-        
+                self.softwareSpecificSfID+=1
+                self.Log("Saveframe category '%s'not found in NEF dictionary"%(saveframe.name))
+                if self.softwareSpecificSfID==1:
+                    soft_specific_sf = bmrb.Saveframe.from_scratch("software_specific_info")
+                    soft_specific_sf.add_tag("_Software_specific_info_list.Sf_category","Software_specific_saveframes")
+                    soft_specific_sf.add_tag("_Software_specific_info_list.Sf_framecode","software_specific_info")
+                    soft_specific_sf.add_tag("_Software_specific_info_list.ID",1)
+                    soft_specific_lp=bmrb.Loop.from_scratch()
+                    soft_specific_lp.add_column("_Software_specific_info.Software_saveframe_ID")
+                    soft_specific_lp.add_column("_Software_specific_info.Software_saveframe")
+                    soft_specific_lp.add_column("_Software_specific_info.Software_specific_info_list_ID")
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),self.softwareSpecificSfID]
+                    soft_specific_lp.add_data(soft_specific_lp_dat)
+                else:
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),self.softwareSpecificSfID]
+                    soft_specific_lp.add_data(soft_specific_lp_dat)
+        soft_specific_sf.add_loop(soft_specific_lp)
+        #print soft_specific_sf
         self.log.close()
     
     
