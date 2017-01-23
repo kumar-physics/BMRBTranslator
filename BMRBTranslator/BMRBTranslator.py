@@ -98,9 +98,10 @@ class BMRBTranslator(object):
            
         self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
         for saveframe in self.nef:
-            self.details = {}
+            
             if saveframe.get_tag("sf_category")[0] in self.tagMap[0]:
                 sf = bmrb.Saveframe.from_scratch(saveframe.name)
+                self.details = {}
                 if saveframe.name == "nef_nmr_meta_data":
                     sf.add_tag("_Entry.NMR_STAR_version","3.2.0.4")
                 for tag in saveframe.tags:
@@ -125,7 +126,7 @@ class BMRBTranslator(object):
                             sf.add_tag(star_tag,tag[1])
                     else:
                         self.Log("Equivalent STAR tag for %s is empty"%(nef_tag),2)
-                    
+                    const_index=1
                 for loop in saveframe:
                     lp = bmrb.Loop.from_scratch()
                     missing_col = []
@@ -140,8 +141,10 @@ class BMRBTranslator(object):
                             self.details[nef_tag] =  str(loop.get_tag(nef_tag))
                             star_auth_tag = ""
                             star_tag = ""
+                        #print nef_tag,star_auth_tag,star_tag
                         if star_auth_tag != "" and star_tag != "" :
                             if star_auth_tag != star_tag:
+                                
                                 auth_col.append(loop.columns.index(coln))
                                 lp.add_column(star_auth_tag)
                                 lp.add_column(star_tag)
@@ -157,10 +160,10 @@ class BMRBTranslator(object):
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
                         const_id = 1
-                    if len(auth_col)!=0:
-                        print auth_col
-                        print loop.columns
-                        print lp.columns        
+                    #if len(auth_col)!=0:
+                        #print len(auth_col),len(loop.columns),len(lp.columns),len(loop.data[0]),auth_col
+                        #print loop.columns
+                        #print lp.columns        
                     for dat in loop.data:
                         if len(auth_col) == 0:
                             if len(missing_col) == 0:
@@ -172,19 +175,89 @@ class BMRBTranslator(object):
                                 lp_data = tmp_dat[:]
                                 lp.add_data(lp_data[:])
                         else:
-                            if sf.category == "assigned_chemical_shifts":
-                                atm_index = loop.columns.index("atom_name")
-                                res_index = loop.columns.index("residue_name")
-                                atm_list = self.EquivalentAtom(dat[:][res_index], dat[:][atm_index])
-                                if len(atm_list) == 0:
-                                    atm_list.append(dat[:][atm_index])
-                                for atm in atm_list:
-                                    tmp_dat = dat[:]
-                                    #for k in auth_col:
-                                
-                    
-                            
-                            
+                            # If author colum and star col are different we need to map
+                            # Mapping is done for atom and chain code 
+                            # in addition to that ambiguity code and member logic code is added
+                            lp_data_list = [dat[:]]
+                            ref_index=0
+                            #lp_data_list=[]
+                            for k in auth_col:
+                                if "chain_code" in loop.columns[k]:
+                                    #print ref_index,auth_col
+                                    for lp_data in lp_data_list:
+                                        try:
+                                            lp_data.insert(k+1+ref_index,chains.index(lp_data[k+ref_index])+1)
+                                        except ValueError:
+                                            lp_data.insert(k+1+ref_index,dat[:][k])
+                                    ref_index+=1
+                                if "sequence_code" in loop.columns[k]:
+                                    for lp_data in lp_data_list:
+                                        lp_data.insert(k+1+ref_index,lp_data[k+ref_index])
+                                    ref_index+=1
+                                if "residue_name" in loop.columns[k]:
+                                    for lp_data in lp_data_list:
+                                        res_name = dat[:][k]
+                                        lp_data.insert(k+1+ref_index,dat[:][k])
+                                    ref_index+=1
+                                if "atom_name" in loop.columns[k]:
+                                    tmp_lp_data=[]
+                                    for lp_dat in lp_data_list:
+                                        
+                                        nef_atm_name = dat[:][k]
+                                        #print nef_atm_name, len(lp_data_list),lp_data_list
+                                        star_atm_list = self.EquivalentAtom(res_name, nef_atm_name)
+                                        if len(star_atm_list) == 0:
+                                            
+                                            lp_dat.insert(k+1+ref_index,dat[:][k])
+                                            #ref_index+=1
+                                            self.Log("No matching STAR atom found for %s-%s in loop %s"%(res_name,nef_atm_name,lp.category),1)
+                                            if sf.category == "assigned_chemical_shifts":
+                                                lp_data.append('1')
+                                            if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
+                                                lp_dat.append("OR")
+                                        elif len(star_atm_list) == 1:
+                                            lp_dat.insert(k+1+ref_index,star_atm_list[0])
+                                            #ref_index+=1
+                                            if sf.category == "assigned_chemical_shifts":
+                                                lp_dat.append('1')
+                                            if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
+                                                lp_dat.append("OR")
+                                        else:
+                                            
+                                            for star_atm in star_atm_list:
+                                                tmp=lp_dat[:]
+                                                tmp.insert(k+1+ref_index,star_atm)
+                                                if sf.category == "assigned_chemical_shifts":
+                                                    tmp.append('2')
+                                                if sf.category=="general_distance_constraints" and tmp[-1]!="OR":
+                                                    tmp.append("OR")
+                                                
+                                                tmp_lp_data.append(tmp)
+                                            
+                                    if len(tmp_lp_data)>0:
+                                         
+                                        lp_data_list = [x[:] for x in tmp_lp_data[:]]
+                                    ref_index+=1
+                                   
+                        
+                            for lp_data in lp_data_list:
+                                if "Index_ID" in lp.columns:
+                                    lp_data[lp.columns.index("Index_ID")]=const_index
+                                    const_index+=1
+                                #print lp.columns
+                                #print lp_data
+                                if len(missing_col)>0:
+                                    for i in sorted(missing_col):
+                                        x=0
+                                        for j in auth_col:
+                                            if j<i: x+=1
+                                        del lp_data[i+x-sorted(missing_col).index(i)]
+                                #print missing_col
+                                #print auth_col
+                                lp.add_data(lp_data)
+                    sf.add_loop(lp)
+                if self.details:
+                    sf.add_tag("Details","\"%s\""%(str(self.details)))                    
             else:
                 self.softwareSpecificSfID+=1
                 self.Log("Saveframe category '%s'not found in NEF dictionary"%(saveframe.name))
@@ -197,13 +270,22 @@ class BMRBTranslator(object):
                     soft_specific_lp.add_column("_Software_specific_info.Software_saveframe_ID")
                     soft_specific_lp.add_column("_Software_specific_info.Software_saveframe")
                     soft_specific_lp.add_column("_Software_specific_info.Software_specific_info_list_ID")
-                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),self.softwareSpecificSfID]
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),'1']
                     soft_specific_lp.add_data(soft_specific_lp_dat)
                 else:
-                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),self.softwareSpecificSfID]
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),'1']
                     soft_specific_lp.add_data(soft_specific_lp_dat)
-        soft_specific_sf.add_loop(soft_specific_lp)
+            
+            self.star.add_saveframe(sf)
+        if self.softwareSpecificSfID:
+            soft_specific_sf.add_loop(soft_specific_lp)
+            self.star.add_saveframe(soft_specific_sf)
+        self.star.normalize()
+        #print self.star
         #print soft_specific_sf
+        with open(self.starFile,'w') as wstarfile:
+            wstarfile.write(str(self.star))
+        self.Log("Output file written")
         self.log.close()
     
     
@@ -273,12 +355,12 @@ class BMRBTranslator(object):
             atms=self.atomDict[res]
             alist=[]
             try:
-                refatm=re.findall(r'(\S+)([xy])([%*])$|(\S+)([%*])$|(\S+)([xy]$)',nefAtom)[0]  
+                refatm=re.findall(r'(\S+)([xyXY])([%*])$|(\S+)([%*])$|(\S+)([xyXY]$)',nefAtom)[0]  
                 set=[refatm.index(i) for i in refatm if i!=""]
                 if set==[0,1,2]:
                     pattern=re.compile(r'%s\S\d+'%(refatm[0]))
                     alist=[i for i in atms if re.search(pattern, i)]
-                    if refatm[1]=="y":
+                    if refatm[1]=="y" or refatm[1]=="Y":
                         alist.reverse()
                 elif set==[3,4]:
                     if refatm[4]=="%":
@@ -294,10 +376,10 @@ class BMRBTranslator(object):
                     alist=[i for i in atms if re.search(pattern, i)]
                     if len(alist)!=2:
                         alist=[]
-                    elif refatm[6]=="y":
+                    elif refatm[6]=="y" or refatm[6]=="Y":
                         #alist.reverse()[]
                         alist=alist[-1:]
-                    elif refatm[6]=="x":
+                    elif refatm[6]=="x" or refatm[6]=="X":
                         alist=alist[:1]
                     else:
                         print "Something wrong"
@@ -312,7 +394,8 @@ class BMRBTranslator(object):
                     alist.append(nefAtom)
         except KeyError:
             #self.logfile.write("%s\tResidue not found,%s,%s\n"%(self.TimeStamp(time.time()),res,nefAtom))
-            print "Residue not found",res,nefAtom
+            #print "Residue not found",res,nefAtom
+            self.Log("Non-standard residue found %s"%(res),1)
             alist=[]
         return alist                    
      
