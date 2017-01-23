@@ -5,9 +5,8 @@ Created on Jan 18, 2017
 '''
 
 import ntpath,os,csv,re,time,datetime,string,sys
-from Bio.MarkovModel import save
 try:
-    import pynmrstar as bmrb
+    import pynmrsta as bmrb
 except ImportError as e:
     #print "Using local STAR parser",str(e) 
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
@@ -158,8 +157,10 @@ class BMRBTranslator(object):
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
                         const_id = 1
-                    
-                            
+                    if len(auth_col)!=0:
+                        print auth_col
+                        print loop.columns
+                        print lp.columns        
                     for dat in loop.data:
                         if len(auth_col) == 0:
                             if len(missing_col) == 0:
@@ -169,6 +170,18 @@ class BMRBTranslator(object):
                                 for m in sorted(missing_col, reverse = True):
                                     del tmp_dat[m]
                                 lp_data = tmp_dat[:]
+                                lp.add_data(lp_data[:])
+                        else:
+                            if sf.category == "assigned_chemical_shifts":
+                                atm_index = loop.columns.index("atom_name")
+                                res_index = loop.columns.index("residue_name")
+                                atm_list = self.EquivalentAtom(dat[:][res_index], dat[:][atm_index])
+                                if len(atm_list) == 0:
+                                    atm_list.append(dat[:][atm_index])
+                                for atm in atm_list:
+                                    tmp_dat = dat[:]
+                                    #for k in auth_col:
+                                
                     
                             
                             
