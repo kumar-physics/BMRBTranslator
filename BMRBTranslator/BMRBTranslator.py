@@ -247,15 +247,16 @@ class BMRBTranslator(object):
                                 #print lp.columns
                                 #print lp_data
                                 if len(missing_col)>0:
-                                    for i in sorted(missing_col):
-                                        x=0
-                                        for j in auth_col:
-                                            if j<i: x+=1
-                                        del lp_data[i+x-sorted(missing_col).index(i)]
+                                    for i in missing_col:
+                                        del lp_data[-1]
                                 #print missing_col
                                 #print auth_col
                                 lp.add_data(lp_data)
-                    sf.add_loop(lp)
+                    if len(lp.columns)>0:
+                        sf.add_loop(lp)
+                    else:
+                        self.details["ss_loop"]=str(loop)
+                    #print sf.name,lp.category,lp.columns,missing_col
                 if self.details:
                     sf.add_tag("Details","\"%s\""%(str(self.details)))                    
             else:
