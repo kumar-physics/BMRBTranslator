@@ -22,10 +22,10 @@ class BMRBTranslator(object):
     '''
     Main class for BMRBTranslator
     '''
-    __version__="v1.0-0-gdd0de35"
+    __version__="v1.0-2-g5ad4c40"
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
-    _write_non_stand_data = False
+    _write_non_stand_data = True
     
     atomDict = { 'CYS': ['N', 'CA', 'C', 'O', 'CB', 'SG', 'H', 'HA', 'HB2', 'HB3', 'HG'],
                  'ASP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'OD2', 'H', 'HA', 'HB2', 'HB3', 'HD2'],
@@ -84,12 +84,12 @@ class BMRBTranslator(object):
         self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
         self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
         if self._write_non_stand_data:
-            self.Log("Software specific data handling enabled")
+            self.Log("Software specific data(SS DATA) handling enabled")
             self.Log("Software specific Tags and Values are dumped into the Details tag of the corresponding saveframe")
             self.Log("Software specific saveframes are copied into software_specific_info saveframe")
             
         else:
-            self.Log("Software specific data handling disabled",1)
+            self.Log("Software specific data(SS DATA) handling disabled",1)
         try:
             self.Log("Reading input file")
             self.nef = bmrb.Entry.from_file(self.nefFile)
@@ -104,6 +104,7 @@ class BMRBTranslator(object):
         chains=sorted(list(set(self.nef.get_loops_by_category('nef_sequence')[0].get_tag('chain_code'))))
            
         self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
+        chemical_shift_list_id = 0
         for saveframe in self.nef:
             
             if saveframe.get_tag("sf_category")[0] in self.tagMap[0]:
@@ -117,7 +118,7 @@ class BMRBTranslator(object):
                         star_auth_tag = self.tagMap[1][self.tagMap[0].index(nef_tag)]
                         star_tag = self.tagMap[2][self.tagMap[0].index(nef_tag)]
                     except ValueError:
-                        self.Log("Tag %s not found in NEF dictionary"%(nef_tag))
+                        self.Log("Tag %s not found in NEF dictionary"%(nef_tag),3)
                         self.details[tag[0]] = tag[1]
                         star_auth_tag = ""
                         star_tag = ""
@@ -144,7 +145,7 @@ class BMRBTranslator(object):
                             star_auth_tag = self.tagMap[1][self.tagMap[0].index(nef_tag)]
                             star_tag = self.tagMap[2][self.tagMap[0].index(nef_tag)]
                         except ValueError:
-                            self.Log("Tag %s not found in NEF dictionary"%(nef_tag))
+                            self.Log("Tag %s not found in NEF dictionary"%(nef_tag),3)
                             self.details[nef_tag] =  str(loop.get_tag(nef_tag))
                             star_auth_tag = ""
                             star_tag = ""
@@ -164,6 +165,8 @@ class BMRBTranslator(object):
                     auth_asym_id=[i for i in range(len(lp.columns)) if "Auth_asym_ID" in lp.columns[i]]
                     if sf.category=="assigned_chemical_shifts":
                         lp.add_column("_Atom_chem_shift.Ambiguity_code")
+                        lp.add_column("_Atom_chem_shift.Assigned_chem_shift_list_ID")
+                        chemical_shift_list_id +=1
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
                         const_id = 1
@@ -217,9 +220,10 @@ class BMRBTranslator(object):
                                             
                                             lp_dat.insert(k+1+ref_index,dat[:][k])
                                             #ref_index+=1
-                                            self.Log("No matching STAR atom found for %s-%s in loop %s"%(res_name,nef_atm_name,lp.category),1)
+                                            if res_name != "." and nef_atm_name != "." :self.Log("No matching STAR atom found for %s-%s in loop %s"%(res_name,nef_atm_name,lp.category),1)
                                             if sf.category == "assigned_chemical_shifts":
                                                 lp_data.append('1')
+                                                lp_data.append(chemical_shift_list_id)
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
                                         elif len(star_atm_list) == 1:
@@ -228,8 +232,10 @@ class BMRBTranslator(object):
                                             if sf.category == "assigned_chemical_shifts":
                                                 if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
                                                     lp_dat.append('2')
+                                                    lp_data.append(chemical_shift_list_id)
                                                 else:
                                                     lp_dat.append('1')
+                                                    lp_data.append(chemical_shift_list_id)
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
                                         else:
@@ -240,8 +246,10 @@ class BMRBTranslator(object):
                                                 if sf.category == "assigned_chemical_shifts":
                                                     if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
                                                         tmp.append('2')
+                                                        tmp.append(chemical_shift_list_id)
                                                     else:
                                                         tmp.append('1')
+                                                        tmp.append(chemical_shift_list_id)
                                                 if sf.category=="general_distance_constraints" and tmp[-1]!="OR":
                                                     tmp.append("OR")
                                                 
@@ -274,7 +282,7 @@ class BMRBTranslator(object):
                     sf.add_tag("Details","\"%s\""%(str(self.details)))                    
             else:
                 self.softwareSpecificSfID+=1
-                self.Log("Saveframe category '%s'not found in NEF dictionary"%(saveframe.name))
+                self.Log("Saveframe '%s'not found in NEF dictionary"%(saveframe.name),3)
                 if self.softwareSpecificSfID==1:
                     soft_specific_sf = bmrb.Saveframe.from_scratch("software_specific_info")
                     soft_specific_sf.add_tag("_Software_specific_info_list.Sf_category","software_specific_info")
@@ -310,6 +318,8 @@ class BMRBTranslator(object):
             self.log.write("%s\tWARNING:%s\n"%(self.TimeStamp(time.time()),txt))
         elif flag==2:
             self.log.write("%s\tERROR:%s\n"%(self.TimeStamp(time.time()),txt))
+        elif flag==3:
+            self.log.write("%s\tSS DATA:%s\n"%(self.TimeStamp(time.time()),txt))
         else:
             print "Logging function takes only three numbers as first argument(0,1,2)"
             exit(1)
@@ -409,7 +419,7 @@ class BMRBTranslator(object):
         except KeyError:
             #self.logfile.write("%s\tResidue not found,%s,%s\n"%(self.TimeStamp(time.time()),res,nefAtom))
             #print "Residue not found",res,nefAtom
-            self.Log("Non-standard residue found %s"%(res),1)
+            if res!="." : self.Log("Non-standard residue found %s"%(res),1)
             alist=[]
         return alist                    
      
