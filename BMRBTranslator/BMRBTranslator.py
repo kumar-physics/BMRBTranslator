@@ -160,16 +160,14 @@ class BMRBTranslator(object):
                                 lp.add_column(star_tag)
                         else:
                             missing_col.append(loop.columns.index(coln))
-                    atm_id=[i for i in range(len(lp.columns)) if "Atom_ID" in lp.columns[i]]
-                    ent_assembly_id=[i for i in range(len(lp.columns)) if "Entity_assembly_ID" in lp.columns[i]]
-                    auth_asym_id=[i for i in range(len(lp.columns)) if "Auth_asym_ID" in lp.columns[i]]
+                    
                     if sf.category=="assigned_chemical_shifts":
                         lp.add_column("_Atom_chem_shift.Ambiguity_code")
                         lp.add_column("_Atom_chem_shift.Assigned_chem_shift_list_ID")
                         chemical_shift_list_id +=1
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
-                        const_id = 1
+                        
                     #if len(auth_col)!=0:
                         #print len(auth_col),len(loop.columns),len(lp.columns),len(loop.data[0]),auth_col
                         #print loop.columns
