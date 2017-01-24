@@ -25,7 +25,7 @@ class BMRBTranslator(object):
     __version__="v1.0-0-gdd0de35"
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
-    _write_non_stand_data = True
+    _write_non_stand_data = False
     
     atomDict = { 'CYS': ['N', 'CA', 'C', 'O', 'CB', 'SG', 'H', 'HA', 'HB2', 'HB3', 'HG'],
                  'ASP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'OD2', 'H', 'HA', 'HB2', 'HB3', 'HD2'],
@@ -226,7 +226,10 @@ class BMRBTranslator(object):
                                             lp_dat.insert(k+1+ref_index,star_atm_list[0])
                                             #ref_index+=1
                                             if sf.category == "assigned_chemical_shifts":
-                                                lp_dat.append('1')
+                                                if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
+                                                    lp_dat.append('2')
+                                                else:
+                                                    lp_dat.append('1')
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
                                         else:
@@ -235,7 +238,10 @@ class BMRBTranslator(object):
                                                 tmp=lp_dat[:]
                                                 tmp.insert(k+1+ref_index,star_atm)
                                                 if sf.category == "assigned_chemical_shifts":
-                                                    tmp.append('2')
+                                                    if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
+                                                        tmp.append('2')
+                                                    else:
+                                                        tmp.append('1')
                                                 if sf.category=="general_distance_constraints" and tmp[-1]!="OR":
                                                     tmp.append("OR")
                                                 
