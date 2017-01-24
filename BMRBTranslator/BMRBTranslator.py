@@ -25,7 +25,7 @@ class BMRBTranslator(object):
     __version__=1.0
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
-    
+    _write_non_stand_data = True
     
     atomDict = { 'CYS': ['N', 'CA', 'C', 'O', 'CB', 'SG', 'H', 'HA', 'HB2', 'HB3', 'HG'],
                  'ASP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'OD2', 'H', 'HA', 'HB2', 'HB3', 'HD2'],
@@ -83,6 +83,13 @@ class BMRBTranslator(object):
         self.log.write("%s:%s\n"%(string.ljust("Translator Version",25),self.__version__))
         self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
         self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
+        if self._write_non_stand_data:
+            self.Log("Software specific data handling enabled")
+            self.Log("Software specific Tags and Values are dumped into the Details tag of the corresponding saveframe")
+            self.Log("Software specific saveframes are copied into software_specific_info saveframe")
+            
+        else:
+            self.Log("Software specific data handling disabled",1)
         try:
             self.Log("Reading input file")
             self.nef = bmrb.Entry.from_file(self.nefFile)
@@ -257,14 +264,14 @@ class BMRBTranslator(object):
                     else:
                         self.details["ss_loop"]=str(loop)
                     #print sf.name,lp.category,lp.columns,missing_col
-                if self.details:
+                if self.details and self._write_non_stand_data:
                     sf.add_tag("Details","\"%s\""%(str(self.details)))                    
             else:
                 self.softwareSpecificSfID+=1
                 self.Log("Saveframe category '%s'not found in NEF dictionary"%(saveframe.name))
                 if self.softwareSpecificSfID==1:
                     soft_specific_sf = bmrb.Saveframe.from_scratch("software_specific_info")
-                    soft_specific_sf.add_tag("_Software_specific_info_list.Sf_category","Software_specific_saveframes")
+                    soft_specific_sf.add_tag("_Software_specific_info_list.Sf_category","software_specific_info")
                     soft_specific_sf.add_tag("_Software_specific_info_list.Sf_framecode","software_specific_info")
                     soft_specific_sf.add_tag("_Software_specific_info_list.ID",1)
                     soft_specific_lp=bmrb.Loop.from_scratch()
