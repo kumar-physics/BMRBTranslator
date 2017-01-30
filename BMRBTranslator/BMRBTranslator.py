@@ -102,13 +102,12 @@ class BMRBTranslator(object):
             self.log.close()
             exit(1)
         chains=sorted(list(set(self.nef.get_loops_by_category('nef_sequence')[0].get_tag('chain_code'))))
-           
         self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
         chemical_shift_list_id = 0
         for saveframe in self.nef:
-            
             if saveframe.get_tag("sf_category")[0] in self.tagMap[0]:
                 sf = bmrb.Saveframe.from_scratch(saveframe.name)
+                #print sf.name,saveframe.name
                 self.details = {}
                 if saveframe.name == "nef_nmr_meta_data":
                     sf.add_tag("_Entry.NMR_STAR_version","3.2.0.4")
@@ -167,15 +166,11 @@ class BMRBTranslator(object):
                         chemical_shift_list_id +=1
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
-                        
-                    #if len(auth_col)!=0:
-                        #print len(auth_col),len(loop.columns),len(lp.columns),len(loop.data[0]),auth_col
-                        #print loop.columns
-                        #print lp.columns        
                     for dat in loop.data:
                         if len(auth_col) == 0:
                             if len(missing_col) == 0:
                                 lp_data = dat[:]
+                                lp.add_data(lp_data)
                             else:
                                 tmp_dat = dat[:]
                                 for m in sorted(missing_col, reverse = True):
@@ -210,7 +205,6 @@ class BMRBTranslator(object):
                                 if "atom_name" in loop.columns[k]:
                                     tmp_lp_data=[]
                                     for lp_dat in lp_data_list:
-                                        
                                         nef_atm_name = dat[:][k]
                                         #print nef_atm_name, len(lp_data_list),lp_data_list
                                         star_atm_list = self.EquivalentAtom(res_name, nef_atm_name)
@@ -236,8 +230,7 @@ class BMRBTranslator(object):
                                                     lp_data.append(chemical_shift_list_id)
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
-                                        else:
-                                            
+                                        else: 
                                             for star_atm in star_atm_list:
                                                 tmp=lp_dat[:]
                                                 tmp.insert(k+1+ref_index,star_atm)
@@ -257,27 +250,23 @@ class BMRBTranslator(object):
                                          
                                         lp_data_list = [x[:] for x in tmp_lp_data[:]]
                                     ref_index+=1
-                                   
-                        
                             for lp_data in lp_data_list:
                                 if "Index_ID" in lp.columns:
                                     lp_data[lp.columns.index("Index_ID")]=const_index
                                     const_index+=1
-                                #print lp.columns
-                                #print lp_data
                                 if len(missing_col)>0:
+                                    #assuming the SSDATA has been put at the last columns
                                     for i in missing_col:
                                         del lp_data[-1]
-                                #print missing_col
-                                #print auth_col
                                 lp.add_data(lp_data)
                     if len(lp.columns)>0:
                         sf.add_loop(lp)
                     else:
                         self.details["ss_loop"]=str(loop)
-                    #print sf.name,lp.category,lp.columns,missing_col
                 if self.details and self._write_non_stand_data:
-                    sf.add_tag("Details","\"%s\""%(str(self.details)))                    
+                    sf.add_tag("Details","\"%s\""%(str(self.details)))  
+                self.star.add_saveframe(sf)
+            #print sf.name
             else:
                 self.softwareSpecificSfID+=1
                 self.Log("Saveframe '%s'not found in NEF dictionary"%(saveframe.name),3)
@@ -296,13 +285,11 @@ class BMRBTranslator(object):
                     soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),'1']
                     soft_specific_lp.add_data(soft_specific_lp_dat)
             
-            self.star.add_saveframe(sf)
+            
         if self.softwareSpecificSfID:
             soft_specific_sf.add_loop(soft_specific_lp)
             self.star.add_saveframe(soft_specific_sf)
         self.star.normalize()
-        #print self.star
-        #print soft_specific_sf
         with open(self.starFile,'w') as wstarfile:
             wstarfile.write(str(self.star))
         self.Log("Output file written")
