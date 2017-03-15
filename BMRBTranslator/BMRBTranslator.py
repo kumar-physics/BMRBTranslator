@@ -59,12 +59,30 @@ class BMRBTranslator(object):
     
     def TimeStamp(self,ts):
         return datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    
+
+    def GenerateSeqID(self):
+        self.SeqID = {}
+        chains = self.nef.get_loops_by_category('nef_sequence')[0].get_tag('chain_code')
+        seq_id = self.nef.get_loops_by_category('nef_sequence')[0].get_tag('sequence_code')
+        unique_chains = sorted(list(set(chains)))
+        n = 0
+        cp = ""
+        for i in range(len(seq_id)):
+            c = chains[i]
+            s = seq_id[i]
+            if cp!= c:
+                n = 1
+                cp = c
+            else:
+                n+=1
+            self.SeqID[(c,s)] = (unique_chains.index(c)+1,n)
+        #print self.SeqID
     def __init__(self):
         '''
         Constructor
         '''
         self.ReadMapFile()
+        bmrb.Schema()
 
         
     def NEFtoStar(self,inFile):
@@ -102,6 +120,7 @@ class BMRBTranslator(object):
             self.log.close()
             exit(1)
         chains=sorted(list(set(self.nef.get_loops_by_category('nef_sequence')[0].get_tag('chain_code'))))
+        self.GenerateSeqID()
         self.star = bmrb.Entry.from_scratch(self.nef.entry_id)
         chemical_shift_list_id = 0
         for saveframe in self.nef:
@@ -134,6 +153,7 @@ class BMRBTranslator(object):
                     else:
                         self.Log("Equivalent STAR tag for %s is empty"%(nef_tag),2)
                     const_index=1
+                    const_index_id=1
                 for loop in saveframe:
                     lp = bmrb.Loop.from_scratch()
                     missing_col = []
@@ -166,16 +186,22 @@ class BMRBTranslator(object):
                         chemical_shift_list_id +=1
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
+                    #print auth_col,missing_col
                     for dat in loop.data:
                         if len(auth_col) == 0:
                             if len(missing_col) == 0:
                                 lp_data = dat[:]
+                                while (lp_data.count('true')): lp_data[lp_data.index('true')]='yes'
+                                while (lp_data.count('false')): lp_data[lp_data.index('false')]='no'
                                 lp.add_data(lp_data)
                             else:
                                 tmp_dat = dat[:]
                                 for m in sorted(missing_col, reverse = True):
+                                    #print tmp_dat[m]
                                     del tmp_dat[m]
                                 lp_data = tmp_dat[:]
+                                while (lp_data.count('true')): lp_data[lp_data.index('true')]='yes'
+                                while (lp_data.count('false')): lp_data[lp_data.index('false')]='no'
                                 lp.add_data(lp_data[:])
                         else:
                             # If author colum and star col are different we need to map
@@ -190,12 +216,19 @@ class BMRBTranslator(object):
                                     for lp_data in lp_data_list:
                                         try:
                                             lp_data.insert(k+1+ref_index,chains.index(lp_data[k+ref_index])+1)
+                                            chain_code = lp_data[k+ref_index]
                                         except ValueError:
                                             lp_data.insert(k+1+ref_index,dat[:][k])
                                     ref_index+=1
                                 if "sequence_code" in loop.columns[k]:
                                     for lp_data in lp_data_list:
-                                        lp_data.insert(k+1+ref_index,lp_data[k+ref_index])
+                                        seq_code = lp_data[k+ref_index]
+                                        #lp_data.insert(k+1+ref_index,lp_data[k+ref_index])
+                                        try:
+                                            lp_data.insert(k+1+ref_index,self.SeqID[(chain_code,seq_code)][1])
+                                        except KeyError:
+                                            self.Log("Seq ID %s not found in sequence section"%(seq_code),1)
+                                            lp_data.insert(k+1+ref_index,lp_data[k+ref_index])
                                     ref_index+=1
                                 if "residue_name" in loop.columns[k]:
                                     for lp_data in lp_data_list:
@@ -254,13 +287,31 @@ class BMRBTranslator(object):
                                 if "Index_ID" in lp.columns:
                                     lp_data[lp.columns.index("Index_ID")]=const_index
                                     const_index+=1
+                                if "ID" in lp.columns:
+                                    lp_data[lp.columns.index("ID")]=const_index_id
+                                    const_index_id+=1
                                 if len(missing_col)>0:
                                     #assuming the SSDATA has been put at the last columns
                                     for i in missing_col:
-                                        del lp_data[-1]
+                                        del lp_data[len(auth_col)+i]
+                                while (lp_data.count('true')): lp_data[lp_data.index('true')]='yes'
+                                while (lp_data.count('false')): lp_data[lp_data.index('false')]='no'
                                 lp.add_data(lp_data)
                     if len(lp.columns)>0:
-                        sf.add_loop(lp)
+                        if  lp.category=='_Software_applied_methods':
+                            sf_tmp = bmrb.Saveframe.from_scratch('nef_applied_software','_Software_applied_list')
+                            sf_tmp.add_tag('Sf_category','applied_software')
+                            sf_tmp.add_tag('Sf_framecode','nef_applied_software')
+                            sf_tmp.add_loop(lp)
+                            self.star.add_saveframe(sf_tmp)
+                        elif lp.category=='_History':
+                            sf_tmp = bmrb.Saveframe.from_scratch('nef_applied_software_history','_Software_applied_history')
+                            sf_tmp.add_tag('Sf_category','applied_software_history')
+                            sf_tmp.add_tag('Sf_framecode','nef_applied_software_history')
+                            sf_tmp.add_loop(lp)
+                            self.star.add_saveframe(sf_tmp)
+                        else:
+                            sf.add_loop(lp)
                     else:
                         self.details["ss_loop"]=str(loop)
                 if self.details and self._write_non_stand_data:
@@ -279,10 +330,10 @@ class BMRBTranslator(object):
                     soft_specific_lp.add_column("_Software_specific_info.Software_saveframe_ID")
                     soft_specific_lp.add_column("_Software_specific_info.Software_saveframe")
                     soft_specific_lp.add_column("_Software_specific_info.Software_specific_info_list_ID")
-                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),'1']
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"%s"%(str(saveframe)),'1']
                     soft_specific_lp.add_data(soft_specific_lp_dat)
                 else:
-                    soft_specific_lp_dat=[self.softwareSpecificSfID,"\"%s\""%(str(saveframe)),'1']
+                    soft_specific_lp_dat=[self.softwareSpecificSfID,"%s"%(str(saveframe)),'1']
                     soft_specific_lp.add_data(soft_specific_lp_dat)
             
             
@@ -290,6 +341,7 @@ class BMRBTranslator(object):
             soft_specific_sf.add_loop(soft_specific_lp)
             self.star.add_saveframe(soft_specific_sf)
         self.star.normalize()
+        bmrb.validate(self.star)
         with open(self.starFile,'w') as wstarfile:
             wstarfile.write(str(self.star))
         self.Log("Output file written")
@@ -310,10 +362,6 @@ class BMRBTranslator(object):
             exit(1)
             
             
-            
-            
-        
-        
         
         
         
@@ -335,13 +383,81 @@ class BMRBTranslator(object):
         try:
             self.star = bmrb.Entry.from_file(self.starFile)
         except Exception as e:
-            self.log.write("%s\t%s"%(self.TimeStamp(time.time()),str(e)))
-            print "Error: Can't parse the input NEF file"
+            self.Log("Problem with input file",2)
+            self.Log(str(e),2)
+            print "Error: Can't parse the input STAR file"
             print str(e)
             print "Check the log",self.logFile
             self.log.close()
             exit(1)
-            
+        self.nef = bmrb.Entry.from_scratch(self.star.entry_id)
+        for saveframe in self.star:
+            if saveframe.get_tag("Sf_category")[0] in self.tagMap[1]:
+                sf = bmrb.Saveframe.from_scratch(saveframe.name)
+                sf.category = self.tagMap[0][self.tagMap[1].index(saveframe.category)]
+                #print sf.name,sf.category
+                #if saveframe.name == "nef_nmr_meta_data":
+                    #sf.add_tag("_nef_nmr_meta_data.format_name","nmr_exchange_format")
+                    #sf.add_tag("_nef_nmr_meta_data.format_version","1.0")
+                for tag in saveframe.tags:
+                    if tag[0] != "Details":
+                        star_tag = "%s.%s"%(saveframe.tag_prefix,tag[0])
+                        try:
+                            nef_tag = self.tagMap[0][self.tagMap[1].index(star_tag)]
+                        except ValueError:
+                            self.Log("Tag %s not found in NEF-STAR csv file; May be STAR specific tag"%(star_tag))
+                            nef_tag=""
+                        if nef_tag != "":
+                            if tag[0] == "Sf_category":
+                                sf.add_tag(nef_tag,sf.category)
+                            else:
+                                sf.add_tag(nef_tag,tag[1])
+                        
+                    else:
+                        sf.add_tag("software_specific_data",str(tag[1]))
+                for loop in saveframe:
+                    lp = bmrb.Loop.from_scratch()
+                    missing_col = []
+                    for coln in loop.columns:
+                        star_tag = "%s.%s"%(loop.category,coln)
+                        try:
+                            nef_tag = self.tagMap[0][self.tagMap[1].index(star_tag)]
+                        except ValueError:
+                            self.Log("Tag %s not found in NEF-STAR csv file; May be STAR specific tag"%(star_tag))
+                            nef_tag=""
+                        if nef_tag != "":
+                            lp.add_column(nef_tag)
+                        else:
+                            missing_col.append(loop.columns.index(coln))
+                    for dat in loop.data:
+                        if len(missing_col) == 0:
+                            lp_data = dat[:]
+                            if lp_data not in lp.data: lp.add_data(lp_data)
+                        else:
+                            tmp_dat = dat[:]
+                            for m in sorted(missing_col, reverse = True):
+                                del tmp_dat[m]
+                            lp_data = tmp_dat[:]
+                            if lp_data not in lp.data: lp.add_data(lp_data)
+                            
+                    #print lp.data
+                    
+                    sf.add_loop(lp)    
+                self.nef.add_saveframe(sf)
+                
+                    
+            elif saveframe.get_tag("Sf_category")[0] == "software_specific_info":
+                for loop in saveframe:
+                    for data in loop:
+                        self.nef.add_saveframe(bmrb.Saveframe.from_string(data[loop.columns.index("Software_saveframe")]))
+            else:
+                self.nef.add_saveframe(saveframe)
+        bmrb.enable_nef_defaults
+        #self.nef.normalize()
+        with open(self.nefFile,'w') as wneffile:
+            wneffile.write(str(self.nef))
+        self.Log("Output file written")
+        self.log.close()
         
     
         
@@ -365,13 +481,13 @@ class BMRBTranslator(object):
             alist=[]
             try:
                 refatm=re.findall(r'(\S+)([xyXY])([%*])$|(\S+)([%*])$|(\S+)([xyXY]$)',nefAtom)[0]  
-                set=[refatm.index(i) for i in refatm if i!=""]
-                if set==[0,1,2]:
+                atm_set=[refatm.index(i) for i in refatm if i!=""]
+                if atm_set==[0,1,2]:
                     pattern=re.compile(r'%s\S\d+'%(refatm[0]))
                     alist=[i for i in atms if re.search(pattern, i)]
                     if refatm[1]=="y" or refatm[1]=="Y":
                         alist.reverse()
-                elif set==[3,4]:
+                elif atm_set==[3,4]:
                     if refatm[4]=="%":
                         pattern=re.compile(r'%s\d+'%(refatm[3]))
                     elif refatm[4]=="*":
@@ -380,7 +496,7 @@ class BMRBTranslator(object):
                         print "something wrong"
                     alist=[i for i in atms if re.search(pattern, i)]
                     
-                elif set==[5,6]:
+                elif atm_set==[5,6]:
                     pattern=re.compile(r'%s\S+'%(refatm[5]))
                     alist=[i for i in atms if re.search(pattern, i)]
                     if len(alist)!=2:
@@ -413,4 +529,5 @@ if __name__=="__main__":
     fname=sys.argv[1]
     p=BMRBTranslator()
     p.NEFtoStar(fname)
+    #p.STARtoNEF(fname)
     
