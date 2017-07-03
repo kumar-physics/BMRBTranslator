@@ -15,14 +15,6 @@ save_nef_nmr_meta_data
    _Entry.Generated_date                2017-01-09T14:14:23.661525
    _Entry.UUID                          CcpNmr-2017-01-09T14:14:23.661525-506288860
    _Entry.Related_coordinate_file_name  .
-
-   loop_
-      _Software_applied_methods.Software_name
-      _Software_applied_methods.Script_name
-      _Software_applied_methods.Script
-
-     CcpNmr   exportProject   .    
-   stop_
 save_
 
 #############################################
@@ -35,8 +27,8 @@ save_nef_molecular_system
 
    loop_
       _Chem_comp_assembly.Entity_assembly_ID
+      _Chem_comp_assembly.Comp_index_ID
       _Chem_comp_assembly.Comp_ID
-      _Chem_comp_assembly.Seq_ID
       _Chem_comp_assembly.Auth_asym_ID
       _Chem_comp_assembly.Auth_seq_ID
       _Chem_comp_assembly.Auth_comp_ID
@@ -45,222 +37,222 @@ save_nef_molecular_system
       _Chem_comp_assembly.Cis_residue
       _Chem_comp_assembly.NEF_index
 
-     1   MET   1     A   1     MET   .   start    .   1      
-     1   ALA   2     A   2     ALA   .   middle   .   2      
-     1   GLY   3     A   3     GLY   .   middle   .   3      
-     1   GLN   4     A   4     GLN   .   middle   .   4      
-     1   SER   5     A   5     SER   .   middle   .   5      
-     1   ASP   6     A   6     ASP   .   middle   .   6      
-     1   ARG   7     A   7     ARG   .   middle   .   7      
-     1   LYS   8     A   8     LYS   .   middle   .   8      
-     1   ALA   9     A   9     ALA   .   middle   .   9      
-     1   ALA   10    A   10    ALA   .   middle   .   10     
-     1   LEU   11    A   11    LEU   .   middle   .   11     
-     1   LEU   12    A   12    LEU   .   middle   .   12     
-     1   ASP   13    A   13    ASP   .   middle   .   13     
-     1   GLN   14    A   14    GLN   .   middle   .   14     
-     1   VAL   15    A   15    VAL   .   middle   .   15     
-     1   ALA   16    A   16    ALA   .   middle   .   16     
-     1   ARG   17    A   17    ARG   .   middle   .   17     
-     1   VAL   18    A   18    VAL   .   middle   .   18     
-     1   GLY   19    A   19    GLY   .   middle   .   19     
-     1   LYS   20    A   20    LYS   .   middle   .   20     
-     1   ALA   21    A   21    ALA   .   middle   .   21     
-     1   LEU   22    A   22    LEU   .   middle   .   22     
-     1   ALA   23    A   23    ALA   .   middle   .   23     
-     1   ASN   24    A   24    ASN   .   middle   .   24     
-     1   GLY   25    A   25    GLY   .   middle   .   25     
-     1   ARG   26    A   26    ARG   .   middle   .   26     
-     1   ARG   27    A   27    ARG   .   middle   .   27     
-     1   LEU   28    A   28    LEU   .   middle   .   28     
-     1   GLN   29    A   29    GLN   .   middle   .   29     
-     1   ILE   30    A   30    ILE   .   middle   .   30     
-     1   LEU   31    A   31    LEU   .   middle   .   31     
-     1   ASP   32    A   32    ASP   .   middle   .   32     
-     1   LEU   33    A   33    LEU   .   middle   .   33     
-     1   LEU   34    A   34    LEU   .   middle   .   34     
-     1   ALA   35    A   35    ALA   .   middle   .   35     
-     1   GLN   36    A   36    GLN   .   middle   .   36     
-     1   GLY   37    A   37    GLY   .   middle   .   37     
-     1   GLU   38    A   38    GLU   .   middle   .   38     
-     1   ARG   39    A   39    ARG   .   middle   .   39     
-     1   ALA   40    A   40    ALA   .   middle   .   40     
-     1   VAL   41    A   41    VAL   .   middle   .   41     
-     1   GLU   42    A   42    GLU   .   middle   .   42     
-     1   ALA   43    A   43    ALA   .   middle   .   43     
-     1   ILE   44    A   44    ILE   .   middle   .   44     
-     1   ALA   45    A   45    ALA   .   middle   .   45     
-     1   THR   46    A   46    THR   .   middle   .   46     
-     1   ALA   47    A   47    ALA   .   middle   .   47     
-     1   THR   48    A   48    THR   .   middle   .   48     
-     1   GLY   49    A   49    GLY   .   middle   .   49     
-     1   MET   50    A   50    MET   .   middle   .   50     
-     1   ASN   51    A   51    ASN   .   middle   .   51     
-     1   LEU   52    A   52    LEU   .   middle   .   52     
-     1   THR   53    A   53    THR   .   middle   .   53     
-     1   THR   54    A   54    THR   .   middle   .   54     
-     1   ALA   55    A   55    ALA   .   middle   .   55     
-     1   SER   56    A   56    SER   .   middle   .   56     
-     1   ALA   57    A   57    ALA   .   middle   .   57     
-     1   ASN   58    A   58    ASN   .   middle   .   58     
-     1   LEU   59    A   59    LEU   .   middle   .   59     
-     1   GLN   60    A   60    GLN   .   middle   .   60     
-     1   ALA   61    A   61    ALA   .   middle   .   61     
-     1   LEU   62    A   62    LEU   .   middle   .   62     
-     1   LYS   63    A   63    LYS   .   middle   .   63     
-     1   SER   64    A   64    SER   .   middle   .   64     
-     1   GLY   65    A   65    GLY   .   middle   .   65     
-     1   GLY   66    A   66    GLY   .   middle   .   66     
-     1   LEU   67    A   67    LEU   .   middle   .   67     
-     1   VAL   68    A   68    VAL   .   middle   .   68     
-     1   GLU   69    A   69    GLU   .   middle   .   69     
-     1   ALA   70    A   70    ALA   .   middle   .   70     
-     1   ARG   71    A   71    ARG   .   middle   .   71     
-     1   ARG   72    A   72    ARG   .   middle   .   72     
-     1   GLU   73    A   73    GLU   .   middle   .   73     
-     1   GLY   74    A   74    GLY   .   middle   .   74     
-     1   THR   75    A   75    THR   .   middle   .   75     
-     1   ARG   76    A   76    ARG   .   middle   .   76     
-     1   GLN   77    A   77    GLN   .   middle   .   77     
-     1   TYR   78    A   78    TYR   .   middle   .   78     
-     1   TYR   79    A   79    TYR   .   middle   .   79     
-     1   ARG   80    A   80    ARG   .   middle   .   80     
-     1   ILE   81    A   81    ILE   .   middle   .   81     
-     1   ALA   82    A   82    ALA   .   middle   .   82     
-     1   GLY   83    A   83    GLY   .   middle   .   83     
-     1   GLU   84    A   84    GLU   .   middle   .   84     
-     1   ASP   85    A   85    ASP   .   middle   .   85     
-     1   VAL   86    A   86    VAL   .   middle   .   86     
-     1   ALA   87    A   87    ALA   .   middle   .   87     
-     1   ARG   88    A   88    ARG   .   middle   .   88     
-     1   LEU   89    A   89    LEU   .   middle   .   89     
-     1   PHE   90    A   90    PHE   .   middle   .   90     
-     1   ALA   91    A   91    ALA   .   middle   .   91     
-     1   LEU   92    A   92    LEU   .   middle   .   92     
-     1   VAL   93    A   93    VAL   .   middle   .   93     
-     1   GLN   94    A   94    GLN   .   middle   .   94     
-     1   VAL   95    A   95    VAL   .   middle   .   95     
-     1   VAL   96    A   96    VAL   .   middle   .   96     
-     1   ALA   97    A   97    ALA   .   middle   .   97     
-     1   ASP   98    A   98    ASP   .   middle   .   98     
-     1   GLU   99    A   99    GLU   .   middle   .   99     
-     1   HIS   100   A   100   HIS   .   middle   .   100    
-     1   LEU   101   A   101   LEU   .   middle   .   101    
-     1   GLU   102   A   102   GLU   .   middle   .   102    
-     1   HIS   103   A   103   HIS   .   middle   .   103    
-     1   HIS   104   A   104   HIS   .   middle   .   104    
-     1   HIS   105   A   105   HIS   .   middle   .   105    
-     1   HIS   106   A   106   HIS   .   middle   .   106    
-     1   HIS   107   A   107   HIS   .   middle   .   107    
-     1   HIS   108   A   108   HIS   .   end      .   108    
-     2   MET   1     B   1     MET   .   start    .   109    
-     2   ALA   2     B   2     ALA   .   middle   .   110    
-     2   GLY   3     B   3     GLY   .   middle   .   111    
-     2   GLN   4     B   4     GLN   .   middle   .   112    
-     2   SER   5     B   5     SER   .   middle   .   113    
-     2   ASP   6     B   6     ASP   .   middle   .   114    
-     2   ARG   7     B   7     ARG   .   middle   .   115    
-     2   LYS   8     B   8     LYS   .   middle   .   116    
-     2   ALA   9     B   9     ALA   .   middle   .   117    
-     2   ALA   10    B   10    ALA   .   middle   .   118    
-     2   LEU   11    B   11    LEU   .   middle   .   119    
-     2   LEU   12    B   12    LEU   .   middle   .   120    
-     2   ASP   13    B   13    ASP   .   middle   .   121    
-     2   GLN   14    B   14    GLN   .   middle   .   122    
-     2   VAL   15    B   15    VAL   .   middle   .   123    
-     2   ALA   16    B   16    ALA   .   middle   .   124    
-     2   ARG   17    B   17    ARG   .   middle   .   125    
-     2   VAL   18    B   18    VAL   .   middle   .   126    
-     2   GLY   19    B   19    GLY   .   middle   .   127    
-     2   LYS   20    B   20    LYS   .   middle   .   128    
-     2   ALA   21    B   21    ALA   .   middle   .   129    
-     2   LEU   22    B   22    LEU   .   middle   .   130    
-     2   ALA   23    B   23    ALA   .   middle   .   131    
-     2   ASN   24    B   24    ASN   .   middle   .   132    
-     2   GLY   25    B   25    GLY   .   middle   .   133    
-     2   ARG   26    B   26    ARG   .   middle   .   134    
-     2   ARG   27    B   27    ARG   .   middle   .   135    
-     2   LEU   28    B   28    LEU   .   middle   .   136    
-     2   GLN   29    B   29    GLN   .   middle   .   137    
-     2   ILE   30    B   30    ILE   .   middle   .   138    
-     2   LEU   31    B   31    LEU   .   middle   .   139    
-     2   ASP   32    B   32    ASP   .   middle   .   140    
-     2   LEU   33    B   33    LEU   .   middle   .   141    
-     2   LEU   34    B   34    LEU   .   middle   .   142    
-     2   ALA   35    B   35    ALA   .   middle   .   143    
-     2   GLN   36    B   36    GLN   .   middle   .   144    
-     2   GLY   37    B   37    GLY   .   middle   .   145    
-     2   GLU   38    B   38    GLU   .   middle   .   146    
-     2   ARG   39    B   39    ARG   .   middle   .   147    
-     2   ALA   40    B   40    ALA   .   middle   .   148    
-     2   VAL   41    B   41    VAL   .   middle   .   149    
-     2   GLU   42    B   42    GLU   .   middle   .   150    
-     2   ALA   43    B   43    ALA   .   middle   .   151    
-     2   ILE   44    B   44    ILE   .   middle   .   152    
-     2   ALA   45    B   45    ALA   .   middle   .   153    
-     2   THR   46    B   46    THR   .   middle   .   154    
-     2   ALA   47    B   47    ALA   .   middle   .   155    
-     2   THR   48    B   48    THR   .   middle   .   156    
-     2   GLY   49    B   49    GLY   .   middle   .   157    
-     2   MET   50    B   50    MET   .   middle   .   158    
-     2   ASN   51    B   51    ASN   .   middle   .   159    
-     2   LEU   52    B   52    LEU   .   middle   .   160    
-     2   THR   53    B   53    THR   .   middle   .   161    
-     2   THR   54    B   54    THR   .   middle   .   162    
-     2   ALA   55    B   55    ALA   .   middle   .   163    
-     2   SER   56    B   56    SER   .   middle   .   164    
-     2   ALA   57    B   57    ALA   .   middle   .   165    
-     2   ASN   58    B   58    ASN   .   middle   .   166    
-     2   LEU   59    B   59    LEU   .   middle   .   167    
-     2   GLN   60    B   60    GLN   .   middle   .   168    
-     2   ALA   61    B   61    ALA   .   middle   .   169    
-     2   LEU   62    B   62    LEU   .   middle   .   170    
-     2   LYS   63    B   63    LYS   .   middle   .   171    
-     2   SER   64    B   64    SER   .   middle   .   172    
-     2   GLY   65    B   65    GLY   .   middle   .   173    
-     2   GLY   66    B   66    GLY   .   middle   .   174    
-     2   LEU   67    B   67    LEU   .   middle   .   175    
-     2   VAL   68    B   68    VAL   .   middle   .   176    
-     2   GLU   69    B   69    GLU   .   middle   .   177    
-     2   ALA   70    B   70    ALA   .   middle   .   178    
-     2   ARG   71    B   71    ARG   .   middle   .   179    
-     2   ARG   72    B   72    ARG   .   middle   .   180    
-     2   GLU   73    B   73    GLU   .   middle   .   181    
-     2   GLY   74    B   74    GLY   .   middle   .   182    
-     2   THR   75    B   75    THR   .   middle   .   183    
-     2   ARG   76    B   76    ARG   .   middle   .   184    
-     2   GLN   77    B   77    GLN   .   middle   .   185    
-     2   TYR   78    B   78    TYR   .   middle   .   186    
-     2   TYR   79    B   79    TYR   .   middle   .   187    
-     2   ARG   80    B   80    ARG   .   middle   .   188    
-     2   ILE   81    B   81    ILE   .   middle   .   189    
-     2   ALA   82    B   82    ALA   .   middle   .   190    
-     2   GLY   83    B   83    GLY   .   middle   .   191    
-     2   GLU   84    B   84    GLU   .   middle   .   192    
-     2   ASP   85    B   85    ASP   .   middle   .   193    
-     2   VAL   86    B   86    VAL   .   middle   .   194    
-     2   ALA   87    B   87    ALA   .   middle   .   195    
-     2   ARG   88    B   88    ARG   .   middle   .   196    
-     2   LEU   89    B   89    LEU   .   middle   .   197    
-     2   PHE   90    B   90    PHE   .   middle   .   198    
-     2   ALA   91    B   91    ALA   .   middle   .   199    
-     2   LEU   92    B   92    LEU   .   middle   .   200    
-     2   VAL   93    B   93    VAL   .   middle   .   201    
-     2   GLN   94    B   94    GLN   .   middle   .   202    
-     2   VAL   95    B   95    VAL   .   middle   .   203    
-     2   VAL   96    B   96    VAL   .   middle   .   204    
-     2   ALA   97    B   97    ALA   .   middle   .   205    
-     2   ASP   98    B   98    ASP   .   middle   .   206    
-     2   GLU   99    B   99    GLU   .   middle   .   207    
-     2   HIS   100   B   100   HIS   .   middle   .   208    
-     2   LEU   101   B   101   LEU   .   middle   .   209    
-     2   GLU   102   B   102   GLU   .   middle   .   210    
-     2   HIS   103   B   103   HIS   .   middle   .   211    
-     2   HIS   104   B   104   HIS   .   middle   .   212    
-     2   HIS   105   B   105   HIS   .   middle   .   213    
-     2   HIS   106   B   106   HIS   .   middle   .   214    
-     2   HIS   107   B   107   HIS   .   middle   .   215    
-     2   HIS   108   B   108   HIS   .   end      .   216    
+     1   1     MET   A   1     MET   .   start    .   1      
+     1   2     ALA   A   2     ALA   .   middle   .   2      
+     1   3     GLY   A   3     GLY   .   middle   .   3      
+     1   4     GLN   A   4     GLN   .   middle   .   4      
+     1   5     SER   A   5     SER   .   middle   .   5      
+     1   6     ASP   A   6     ASP   .   middle   .   6      
+     1   7     ARG   A   7     ARG   .   middle   .   7      
+     1   8     LYS   A   8     LYS   .   middle   .   8      
+     1   9     ALA   A   9     ALA   .   middle   .   9      
+     1   10    ALA   A   10    ALA   .   middle   .   10     
+     1   11    LEU   A   11    LEU   .   middle   .   11     
+     1   12    LEU   A   12    LEU   .   middle   .   12     
+     1   13    ASP   A   13    ASP   .   middle   .   13     
+     1   14    GLN   A   14    GLN   .   middle   .   14     
+     1   15    VAL   A   15    VAL   .   middle   .   15     
+     1   16    ALA   A   16    ALA   .   middle   .   16     
+     1   17    ARG   A   17    ARG   .   middle   .   17     
+     1   18    VAL   A   18    VAL   .   middle   .   18     
+     1   19    GLY   A   19    GLY   .   middle   .   19     
+     1   20    LYS   A   20    LYS   .   middle   .   20     
+     1   21    ALA   A   21    ALA   .   middle   .   21     
+     1   22    LEU   A   22    LEU   .   middle   .   22     
+     1   23    ALA   A   23    ALA   .   middle   .   23     
+     1   24    ASN   A   24    ASN   .   middle   .   24     
+     1   25    GLY   A   25    GLY   .   middle   .   25     
+     1   26    ARG   A   26    ARG   .   middle   .   26     
+     1   27    ARG   A   27    ARG   .   middle   .   27     
+     1   28    LEU   A   28    LEU   .   middle   .   28     
+     1   29    GLN   A   29    GLN   .   middle   .   29     
+     1   30    ILE   A   30    ILE   .   middle   .   30     
+     1   31    LEU   A   31    LEU   .   middle   .   31     
+     1   32    ASP   A   32    ASP   .   middle   .   32     
+     1   33    LEU   A   33    LEU   .   middle   .   33     
+     1   34    LEU   A   34    LEU   .   middle   .   34     
+     1   35    ALA   A   35    ALA   .   middle   .   35     
+     1   36    GLN   A   36    GLN   .   middle   .   36     
+     1   37    GLY   A   37    GLY   .   middle   .   37     
+     1   38    GLU   A   38    GLU   .   middle   .   38     
+     1   39    ARG   A   39    ARG   .   middle   .   39     
+     1   40    ALA   A   40    ALA   .   middle   .   40     
+     1   41    VAL   A   41    VAL   .   middle   .   41     
+     1   42    GLU   A   42    GLU   .   middle   .   42     
+     1   43    ALA   A   43    ALA   .   middle   .   43     
+     1   44    ILE   A   44    ILE   .   middle   .   44     
+     1   45    ALA   A   45    ALA   .   middle   .   45     
+     1   46    THR   A   46    THR   .   middle   .   46     
+     1   47    ALA   A   47    ALA   .   middle   .   47     
+     1   48    THR   A   48    THR   .   middle   .   48     
+     1   49    GLY   A   49    GLY   .   middle   .   49     
+     1   50    MET   A   50    MET   .   middle   .   50     
+     1   51    ASN   A   51    ASN   .   middle   .   51     
+     1   52    LEU   A   52    LEU   .   middle   .   52     
+     1   53    THR   A   53    THR   .   middle   .   53     
+     1   54    THR   A   54    THR   .   middle   .   54     
+     1   55    ALA   A   55    ALA   .   middle   .   55     
+     1   56    SER   A   56    SER   .   middle   .   56     
+     1   57    ALA   A   57    ALA   .   middle   .   57     
+     1   58    ASN   A   58    ASN   .   middle   .   58     
+     1   59    LEU   A   59    LEU   .   middle   .   59     
+     1   60    GLN   A   60    GLN   .   middle   .   60     
+     1   61    ALA   A   61    ALA   .   middle   .   61     
+     1   62    LEU   A   62    LEU   .   middle   .   62     
+     1   63    LYS   A   63    LYS   .   middle   .   63     
+     1   64    SER   A   64    SER   .   middle   .   64     
+     1   65    GLY   A   65    GLY   .   middle   .   65     
+     1   66    GLY   A   66    GLY   .   middle   .   66     
+     1   67    LEU   A   67    LEU   .   middle   .   67     
+     1   68    VAL   A   68    VAL   .   middle   .   68     
+     1   69    GLU   A   69    GLU   .   middle   .   69     
+     1   70    ALA   A   70    ALA   .   middle   .   70     
+     1   71    ARG   A   71    ARG   .   middle   .   71     
+     1   72    ARG   A   72    ARG   .   middle   .   72     
+     1   73    GLU   A   73    GLU   .   middle   .   73     
+     1   74    GLY   A   74    GLY   .   middle   .   74     
+     1   75    THR   A   75    THR   .   middle   .   75     
+     1   76    ARG   A   76    ARG   .   middle   .   76     
+     1   77    GLN   A   77    GLN   .   middle   .   77     
+     1   78    TYR   A   78    TYR   .   middle   .   78     
+     1   79    TYR   A   79    TYR   .   middle   .   79     
+     1   80    ARG   A   80    ARG   .   middle   .   80     
+     1   81    ILE   A   81    ILE   .   middle   .   81     
+     1   82    ALA   A   82    ALA   .   middle   .   82     
+     1   83    GLY   A   83    GLY   .   middle   .   83     
+     1   84    GLU   A   84    GLU   .   middle   .   84     
+     1   85    ASP   A   85    ASP   .   middle   .   85     
+     1   86    VAL   A   86    VAL   .   middle   .   86     
+     1   87    ALA   A   87    ALA   .   middle   .   87     
+     1   88    ARG   A   88    ARG   .   middle   .   88     
+     1   89    LEU   A   89    LEU   .   middle   .   89     
+     1   90    PHE   A   90    PHE   .   middle   .   90     
+     1   91    ALA   A   91    ALA   .   middle   .   91     
+     1   92    LEU   A   92    LEU   .   middle   .   92     
+     1   93    VAL   A   93    VAL   .   middle   .   93     
+     1   94    GLN   A   94    GLN   .   middle   .   94     
+     1   95    VAL   A   95    VAL   .   middle   .   95     
+     1   96    VAL   A   96    VAL   .   middle   .   96     
+     1   97    ALA   A   97    ALA   .   middle   .   97     
+     1   98    ASP   A   98    ASP   .   middle   .   98     
+     1   99    GLU   A   99    GLU   .   middle   .   99     
+     1   100   HIS   A   100   HIS   .   middle   .   100    
+     1   101   LEU   A   101   LEU   .   middle   .   101    
+     1   102   GLU   A   102   GLU   .   middle   .   102    
+     1   103   HIS   A   103   HIS   .   middle   .   103    
+     1   104   HIS   A   104   HIS   .   middle   .   104    
+     1   105   HIS   A   105   HIS   .   middle   .   105    
+     1   106   HIS   A   106   HIS   .   middle   .   106    
+     1   107   HIS   A   107   HIS   .   middle   .   107    
+     1   108   HIS   A   108   HIS   .   end      .   108    
+     2   1     MET   B   1     MET   .   start    .   109    
+     2   2     ALA   B   2     ALA   .   middle   .   110    
+     2   3     GLY   B   3     GLY   .   middle   .   111    
+     2   4     GLN   B   4     GLN   .   middle   .   112    
+     2   5     SER   B   5     SER   .   middle   .   113    
+     2   6     ASP   B   6     ASP   .   middle   .   114    
+     2   7     ARG   B   7     ARG   .   middle   .   115    
+     2   8     LYS   B   8     LYS   .   middle   .   116    
+     2   9     ALA   B   9     ALA   .   middle   .   117    
+     2   10    ALA   B   10    ALA   .   middle   .   118    
+     2   11    LEU   B   11    LEU   .   middle   .   119    
+     2   12    LEU   B   12    LEU   .   middle   .   120    
+     2   13    ASP   B   13    ASP   .   middle   .   121    
+     2   14    GLN   B   14    GLN   .   middle   .   122    
+     2   15    VAL   B   15    VAL   .   middle   .   123    
+     2   16    ALA   B   16    ALA   .   middle   .   124    
+     2   17    ARG   B   17    ARG   .   middle   .   125    
+     2   18    VAL   B   18    VAL   .   middle   .   126    
+     2   19    GLY   B   19    GLY   .   middle   .   127    
+     2   20    LYS   B   20    LYS   .   middle   .   128    
+     2   21    ALA   B   21    ALA   .   middle   .   129    
+     2   22    LEU   B   22    LEU   .   middle   .   130    
+     2   23    ALA   B   23    ALA   .   middle   .   131    
+     2   24    ASN   B   24    ASN   .   middle   .   132    
+     2   25    GLY   B   25    GLY   .   middle   .   133    
+     2   26    ARG   B   26    ARG   .   middle   .   134    
+     2   27    ARG   B   27    ARG   .   middle   .   135    
+     2   28    LEU   B   28    LEU   .   middle   .   136    
+     2   29    GLN   B   29    GLN   .   middle   .   137    
+     2   30    ILE   B   30    ILE   .   middle   .   138    
+     2   31    LEU   B   31    LEU   .   middle   .   139    
+     2   32    ASP   B   32    ASP   .   middle   .   140    
+     2   33    LEU   B   33    LEU   .   middle   .   141    
+     2   34    LEU   B   34    LEU   .   middle   .   142    
+     2   35    ALA   B   35    ALA   .   middle   .   143    
+     2   36    GLN   B   36    GLN   .   middle   .   144    
+     2   37    GLY   B   37    GLY   .   middle   .   145    
+     2   38    GLU   B   38    GLU   .   middle   .   146    
+     2   39    ARG   B   39    ARG   .   middle   .   147    
+     2   40    ALA   B   40    ALA   .   middle   .   148    
+     2   41    VAL   B   41    VAL   .   middle   .   149    
+     2   42    GLU   B   42    GLU   .   middle   .   150    
+     2   43    ALA   B   43    ALA   .   middle   .   151    
+     2   44    ILE   B   44    ILE   .   middle   .   152    
+     2   45    ALA   B   45    ALA   .   middle   .   153    
+     2   46    THR   B   46    THR   .   middle   .   154    
+     2   47    ALA   B   47    ALA   .   middle   .   155    
+     2   48    THR   B   48    THR   .   middle   .   156    
+     2   49    GLY   B   49    GLY   .   middle   .   157    
+     2   50    MET   B   50    MET   .   middle   .   158    
+     2   51    ASN   B   51    ASN   .   middle   .   159    
+     2   52    LEU   B   52    LEU   .   middle   .   160    
+     2   53    THR   B   53    THR   .   middle   .   161    
+     2   54    THR   B   54    THR   .   middle   .   162    
+     2   55    ALA   B   55    ALA   .   middle   .   163    
+     2   56    SER   B   56    SER   .   middle   .   164    
+     2   57    ALA   B   57    ALA   .   middle   .   165    
+     2   58    ASN   B   58    ASN   .   middle   .   166    
+     2   59    LEU   B   59    LEU   .   middle   .   167    
+     2   60    GLN   B   60    GLN   .   middle   .   168    
+     2   61    ALA   B   61    ALA   .   middle   .   169    
+     2   62    LEU   B   62    LEU   .   middle   .   170    
+     2   63    LYS   B   63    LYS   .   middle   .   171    
+     2   64    SER   B   64    SER   .   middle   .   172    
+     2   65    GLY   B   65    GLY   .   middle   .   173    
+     2   66    GLY   B   66    GLY   .   middle   .   174    
+     2   67    LEU   B   67    LEU   .   middle   .   175    
+     2   68    VAL   B   68    VAL   .   middle   .   176    
+     2   69    GLU   B   69    GLU   .   middle   .   177    
+     2   70    ALA   B   70    ALA   .   middle   .   178    
+     2   71    ARG   B   71    ARG   .   middle   .   179    
+     2   72    ARG   B   72    ARG   .   middle   .   180    
+     2   73    GLU   B   73    GLU   .   middle   .   181    
+     2   74    GLY   B   74    GLY   .   middle   .   182    
+     2   75    THR   B   75    THR   .   middle   .   183    
+     2   76    ARG   B   76    ARG   .   middle   .   184    
+     2   77    GLN   B   77    GLN   .   middle   .   185    
+     2   78    TYR   B   78    TYR   .   middle   .   186    
+     2   79    TYR   B   79    TYR   .   middle   .   187    
+     2   80    ARG   B   80    ARG   .   middle   .   188    
+     2   81    ILE   B   81    ILE   .   middle   .   189    
+     2   82    ALA   B   82    ALA   .   middle   .   190    
+     2   83    GLY   B   83    GLY   .   middle   .   191    
+     2   84    GLU   B   84    GLU   .   middle   .   192    
+     2   85    ASP   B   85    ASP   .   middle   .   193    
+     2   86    VAL   B   86    VAL   .   middle   .   194    
+     2   87    ALA   B   87    ALA   .   middle   .   195    
+     2   88    ARG   B   88    ARG   .   middle   .   196    
+     2   89    LEU   B   89    LEU   .   middle   .   197    
+     2   90    PHE   B   90    PHE   .   middle   .   198    
+     2   91    ALA   B   91    ALA   .   middle   .   199    
+     2   92    LEU   B   92    LEU   .   middle   .   200    
+     2   93    VAL   B   93    VAL   .   middle   .   201    
+     2   94    GLN   B   94    GLN   .   middle   .   202    
+     2   95    VAL   B   95    VAL   .   middle   .   203    
+     2   96    VAL   B   96    VAL   .   middle   .   204    
+     2   97    ALA   B   97    ALA   .   middle   .   205    
+     2   98    ASP   B   98    ASP   .   middle   .   206    
+     2   99    GLU   B   99    GLU   .   middle   .   207    
+     2   100   HIS   B   100   HIS   .   middle   .   208    
+     2   101   LEU   B   101   LEU   .   middle   .   209    
+     2   102   GLU   B   102   GLU   .   middle   .   210    
+     2   103   HIS   B   103   HIS   .   middle   .   211    
+     2   104   HIS   B   104   HIS   .   middle   .   212    
+     2   105   HIS   B   105   HIS   .   middle   .   213    
+     2   106   HIS   B   106   HIS   .   middle   .   214    
+     2   107   HIS   B   107   HIS   .   middle   .   215    
+     2   108   HIS   B   108   HIS   .   end      .   216    
    stop_
 save_
 
@@ -308,7 +300,7 @@ save_nef_chemical_shift_list_16368
 
    loop_
       _Atom_chem_shift.Entity_assembly_ID
-      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_index_ID
       _Atom_chem_shift.Comp_ID
       _Atom_chem_shift.Atom_ID
       _Atom_chem_shift.Atom_type
@@ -2983,15 +2975,15 @@ save_nef_nmr_spectrum_aronoesy
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -3114,15 +3106,15 @@ save_nef_nmr_spectrum_cnoesy
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -5145,15 +5137,15 @@ save_nef_nmr_spectrum_filterednoesy
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -5307,15 +5299,15 @@ save_nef_nmr_spectrum_nnoesy
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -6190,11 +6182,11 @@ save_nef_distance_restraint_list_distance_constraint_list
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -15170,11 +15162,11 @@ save_nef_distance_restraint_list_hBond_constraint_list
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -15436,19 +15428,19 @@ save_nef_dihedral_restraint_list_dihedral_constraint_list
       _Torsion_angle_constraint.Combination_ID
       _Torsion_angle_constraint.Torsion_angle_name
       _Torsion_angle_constraint.Entity_assembly_ID_1
-      _Torsion_angle_constraint.Seq_ID_1
+      _Torsion_angle_constraint.Comp_index_ID_1
       _Torsion_angle_constraint.Comp_ID_1
       _Torsion_angle_constraint.Atom_ID_1
       _Torsion_angle_constraint.Entity_assembly_ID_2
-      _Torsion_angle_constraint.Seq_ID_2
+      _Torsion_angle_constraint.Comp_index_ID_2
       _Torsion_angle_constraint.Comp_ID_2
       _Torsion_angle_constraint.Atom_ID_2
       _Torsion_angle_constraint.Assembly_atom_ID_3
-      _Torsion_angle_constraint.Seq_ID_3
+      _Torsion_angle_constraint.Comp_index_ID_3
       _Torsion_angle_constraint.Comp_ID_3
       _Torsion_angle_constraint.Atom_ID_3
       _Torsion_angle_constraint.Assembly_atom_ID_4
-      _Torsion_angle_constraint.Seq_ID_4
+      _Torsion_angle_constraint.Comp_index_ID_4
       _Torsion_angle_constraint.Comp_ID_4
       _Torsion_angle_constraint.Atom_ID_4
       _Torsion_angle_constraint.Angle_lower_bound_val
@@ -15811,5 +15803,18 @@ save_nef_dihedral_restraint_list_dihedral_constraint_list
      334   334   .   PSI   2   99    GLU   N   2   99    GLU   CA   2   99    GLU   C    2   100   HIS   N   -61.96    -1.96     .   .   .   .   1   B   99    GLU   N   B   99    GLU   CA   B   99    GLU   C    B   100   HIS   N    
      335   335   .   PHI   2   99    GLU   C   2   100   HIS   N    2   100   HIS   CA   2   100   HIS   C   -110.35   -50.35    .   .   .   .   1   B   99    GLU   C   B   100   HIS   N    B   100   HIS   CA   B   100   HIS   C    
      336   336   .   PSI   2   100   HIS   N   2   100   HIS   CA   2   100   HIS   C    2   101   LEU   N   -63.98    -3.98     .   .   .   .   1   B   100   HIS   N   B   100   HIS   CA   B   100   HIS   C    B   101   LEU   N    
+   stop_
+save_
+
+save_nef_applied_software
+   _Software_applied_list.Sf_category   applied_software
+   _Software_applied_list.Sf_framecode  nef_applied_software
+
+   loop_
+      _Software_applied_methods.Software_name
+      _Software_applied_methods.Script_name
+      _Software_applied_methods.Script
+
+     CcpNmr   exportProject   .    
    stop_
 save_

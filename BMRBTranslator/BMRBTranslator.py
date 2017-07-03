@@ -22,7 +22,7 @@ class BMRBTranslator(object):
     '''
     Main class for BMRBTranslator
     '''
-    __version__="v1.0-2-g5ad4c40"
+    __version__="v1.0-7-g48d8d88"
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
     _write_non_stand_data = True
