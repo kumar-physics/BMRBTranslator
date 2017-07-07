@@ -27,8 +27,8 @@ save_nef_molecular_system
 
    loop_
       _Chem_comp_assembly.Entity_assembly_ID
+      _Chem_comp_assembly.Comp_index_ID
       _Chem_comp_assembly.Comp_ID
-      _Chem_comp_assembly.Seq_ID
       _Chem_comp_assembly.Auth_asym_ID
       _Chem_comp_assembly.Auth_seq_ID
       _Chem_comp_assembly.Auth_comp_ID
@@ -37,75 +37,75 @@ save_nef_molecular_system
       _Chem_comp_assembly.Cis_residue
       _Chem_comp_assembly.NEF_index
 
-     1   MET   1    A   1    MET   .   start    .   1     
-     1   GLY   2    A   2    GLY   .   middle   .   2     
-     1   HIS   3    A   3    HIS   .   middle   .   3     
-     1   HIS   4    A   4    HIS   .   middle   .   4     
-     1   HIS   5    A   5    HIS   .   middle   .   5     
-     1   HIS   6    A   6    HIS   .   middle   .   6     
-     1   HIS   7    A   7    HIS   .   middle   .   7     
-     1   HIS   8    A   8    HIS   .   middle   .   8     
-     1   SER   9    A   9    SER   .   middle   .   9     
-     1   HIS   10   A   10   HIS   .   middle   .   10    
-     1   MET   11   A   11   MET   .   middle   .   11    
-     1   SER   12   A   12   SER   .   middle   .   12    
-     1   HIS   13   A   13   HIS   .   middle   .   13    
-     1   THR   14   A   14   THR   .   middle   .   14    
-     1   GLN   15   A   15   GLN   .   middle   .   15    
-     1   VAL   16   A   16   VAL   .   middle   .   16    
-     1   ILE   17   A   17   ILE   .   middle   .   17    
-     1   GLU   18   A   18   GLU   .   middle   .   18    
-     1   LEU   19   A   19   LEU   .   middle   .   19    
-     1   GLU   20   A   20   GLU   .   middle   .   20    
-     1   ARG   21   A   21   ARG   .   middle   .   21    
-     1   LYS   22   A   22   LYS   .   middle   .   22    
-     1   PHE   23   A   23   PHE   .   middle   .   23    
-     1   SER   24   A   24   SER   .   middle   .   24    
-     1   HIS   25   A   25   HIS   .   middle   .   25    
-     1   GLN   26   A   26   GLN   .   middle   .   26    
-     1   LYS   27   A   27   LYS   .   middle   .   27    
-     1   TYR   28   A   28   TYR   .   middle   .   28    
-     1   LEU   29   A   29   LEU   .   middle   .   29    
-     1   SER   30   A   30   SER   .   middle   .   30    
-     1   ALA   31   A   31   ALA   .   middle   .   31    
-     1   PRO   32   A   32   PRO   .   middle   .   32    
-     1   GLU   33   A   33   GLU   .   middle   .   33    
-     1   ARG   34   A   34   ARG   .   middle   .   34    
-     1   ALA   35   A   35   ALA   .   middle   .   35    
-     1   HIS   36   A   36   HIS   .   middle   .   36    
-     1   LEU   37   A   37   LEU   .   middle   .   37    
-     1   ALA   38   A   38   ALA   .   middle   .   38    
-     1   LYS   39   A   39   LYS   .   middle   .   39    
-     1   ASN   40   A   40   ASN   .   middle   .   40    
-     1   LEU   41   A   41   LEU   .   middle   .   41    
-     1   LYS   42   A   42   LYS   .   middle   .   42    
-     1   LEU   43   A   43   LEU   .   middle   .   43    
-     1   THR   44   A   44   THR   .   middle   .   44    
-     1   GLU   45   A   45   GLU   .   middle   .   45    
-     1   THR   46   A   46   THR   .   middle   .   46    
-     1   GLN   47   A   47   GLN   .   middle   .   47    
-     1   VAL   48   A   48   VAL   .   middle   .   48    
-     1   LYS   49   A   49   LYS   .   middle   .   49    
-     1   ILE   50   A   50   ILE   .   middle   .   50    
-     1   TRP   51   A   51   TRP   .   middle   .   51    
-     1   PHE   52   A   52   PHE   .   middle   .   52    
-     1   GLN   53   A   53   GLN   .   middle   .   53    
-     1   ASN   54   A   54   ASN   .   middle   .   54    
-     1   ARG   55   A   55   ARG   .   middle   .   55    
-     1   ARG   56   A   56   ARG   .   middle   .   56    
-     1   TYR   57   A   57   TYR   .   middle   .   57    
-     1   LYS   58   A   58   LYS   .   middle   .   58    
-     1   THR   59   A   59   THR   .   middle   .   59    
-     1   LYS   60   A   60   LYS   .   middle   .   60    
-     1   ARG   61   A   61   ARG   .   middle   .   61    
-     1   LYS   62   A   62   LYS   .   middle   .   62    
-     1   GLN   63   A   63   GLN   .   middle   .   63    
-     1   LEU   64   A   64   LEU   .   middle   .   64    
-     1   SER   65   A   65   SER   .   middle   .   65    
-     1   SER   66   A   66   SER   .   middle   .   66    
-     1   GLU   67   A   67   GLU   .   middle   .   67    
-     1   LEU   68   A   68   LEU   .   middle   .   68    
-     1   GLY   69   A   69   GLY   .   end      .   69    
+     1   1    MET   A   1    MET   .   start    .   1     
+     1   2    GLY   A   2    GLY   .   middle   .   2     
+     1   3    HIS   A   3    HIS   .   middle   .   3     
+     1   4    HIS   A   4    HIS   .   middle   .   4     
+     1   5    HIS   A   5    HIS   .   middle   .   5     
+     1   6    HIS   A   6    HIS   .   middle   .   6     
+     1   7    HIS   A   7    HIS   .   middle   .   7     
+     1   8    HIS   A   8    HIS   .   middle   .   8     
+     1   9    SER   A   9    SER   .   middle   .   9     
+     1   10   HIS   A   10   HIS   .   middle   .   10    
+     1   11   MET   A   11   MET   .   middle   .   11    
+     1   12   SER   A   12   SER   .   middle   .   12    
+     1   13   HIS   A   13   HIS   .   middle   .   13    
+     1   14   THR   A   14   THR   .   middle   .   14    
+     1   15   GLN   A   15   GLN   .   middle   .   15    
+     1   16   VAL   A   16   VAL   .   middle   .   16    
+     1   17   ILE   A   17   ILE   .   middle   .   17    
+     1   18   GLU   A   18   GLU   .   middle   .   18    
+     1   19   LEU   A   19   LEU   .   middle   .   19    
+     1   20   GLU   A   20   GLU   .   middle   .   20    
+     1   21   ARG   A   21   ARG   .   middle   .   21    
+     1   22   LYS   A   22   LYS   .   middle   .   22    
+     1   23   PHE   A   23   PHE   .   middle   .   23    
+     1   24   SER   A   24   SER   .   middle   .   24    
+     1   25   HIS   A   25   HIS   .   middle   .   25    
+     1   26   GLN   A   26   GLN   .   middle   .   26    
+     1   27   LYS   A   27   LYS   .   middle   .   27    
+     1   28   TYR   A   28   TYR   .   middle   .   28    
+     1   29   LEU   A   29   LEU   .   middle   .   29    
+     1   30   SER   A   30   SER   .   middle   .   30    
+     1   31   ALA   A   31   ALA   .   middle   .   31    
+     1   32   PRO   A   32   PRO   .   middle   .   32    
+     1   33   GLU   A   33   GLU   .   middle   .   33    
+     1   34   ARG   A   34   ARG   .   middle   .   34    
+     1   35   ALA   A   35   ALA   .   middle   .   35    
+     1   36   HIS   A   36   HIS   .   middle   .   36    
+     1   37   LEU   A   37   LEU   .   middle   .   37    
+     1   38   ALA   A   38   ALA   .   middle   .   38    
+     1   39   LYS   A   39   LYS   .   middle   .   39    
+     1   40   ASN   A   40   ASN   .   middle   .   40    
+     1   41   LEU   A   41   LEU   .   middle   .   41    
+     1   42   LYS   A   42   LYS   .   middle   .   42    
+     1   43   LEU   A   43   LEU   .   middle   .   43    
+     1   44   THR   A   44   THR   .   middle   .   44    
+     1   45   GLU   A   45   GLU   .   middle   .   45    
+     1   46   THR   A   46   THR   .   middle   .   46    
+     1   47   GLN   A   47   GLN   .   middle   .   47    
+     1   48   VAL   A   48   VAL   .   middle   .   48    
+     1   49   LYS   A   49   LYS   .   middle   .   49    
+     1   50   ILE   A   50   ILE   .   middle   .   50    
+     1   51   TRP   A   51   TRP   .   middle   .   51    
+     1   52   PHE   A   52   PHE   .   middle   .   52    
+     1   53   GLN   A   53   GLN   .   middle   .   53    
+     1   54   ASN   A   54   ASN   .   middle   .   54    
+     1   55   ARG   A   55   ARG   .   middle   .   55    
+     1   56   ARG   A   56   ARG   .   middle   .   56    
+     1   57   TYR   A   57   TYR   .   middle   .   57    
+     1   58   LYS   A   58   LYS   .   middle   .   58    
+     1   59   THR   A   59   THR   .   middle   .   59    
+     1   60   LYS   A   60   LYS   .   middle   .   60    
+     1   61   ARG   A   61   ARG   .   middle   .   61    
+     1   62   LYS   A   62   LYS   .   middle   .   62    
+     1   63   GLN   A   63   GLN   .   middle   .   63    
+     1   64   LEU   A   64   LEU   .   middle   .   64    
+     1   65   SER   A   65   SER   .   middle   .   65    
+     1   66   SER   A   66   SER   .   middle   .   66    
+     1   67   GLU   A   67   GLU   .   middle   .   67    
+     1   68   LEU   A   68   LEU   .   middle   .   68    
+     1   69   GLY   A   69   GLY   .   end      .   69    
    stop_
 save_
 
@@ -153,7 +153,7 @@ save_nef_chemical_shift_list_17484
 
    loop_
       _Atom_chem_shift.Entity_assembly_ID
-      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_index_ID
       _Atom_chem_shift.Comp_ID
       _Atom_chem_shift.Atom_ID
       _Atom_chem_shift.Atom_type
@@ -1082,15 +1082,15 @@ save_nef_nmr_spectrum_anoe_final
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -1329,15 +1329,15 @@ save_nef_nmr_spectrum_cnoe_final
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -4506,15 +4506,15 @@ save_nef_nmr_spectrum_nnoe_final
       _Peak.Position_3
       _Peak.Position_uncertainty_3
       _Peak.Entity_assembly_ID_1
-      _Peak.Seq_ID_1
+      _Peak.Comp_index_ID_1
       _Peak.Comp_ID_1
       _Peak.Atom_ID_1
       _Peak.Entity_assembly_ID_2
-      _Peak.Seq_ID_2
+      _Peak.Comp_index_ID_2
       _Peak.Comp_ID_2
       _Peak.Atom_ID_2
       _Peak.Entity_assembly_ID_3
-      _Peak.Seq_ID_3
+      _Peak.Comp_index_ID_3
       _Peak.Comp_ID_3
       _Peak.Atom_ID_3
       _Peak.Auth_asym_ID_1
@@ -5495,11 +5495,11 @@ save_nef_distance_restraint_list_distance_constraint_list
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -10186,11 +10186,11 @@ save_nef_distance_restraint_list_hBond_constraint_list
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -10262,19 +10262,19 @@ save_nef_dihedral_restraint_list_dihedral_constraint_list
       _Torsion_angle_constraint.Combination_ID
       _Torsion_angle_constraint.Torsion_angle_name
       _Torsion_angle_constraint.Entity_assembly_ID_1
-      _Torsion_angle_constraint.Seq_ID_1
+      _Torsion_angle_constraint.Comp_index_ID_1
       _Torsion_angle_constraint.Comp_ID_1
       _Torsion_angle_constraint.Atom_ID_1
       _Torsion_angle_constraint.Entity_assembly_ID_2
-      _Torsion_angle_constraint.Seq_ID_2
+      _Torsion_angle_constraint.Comp_index_ID_2
       _Torsion_angle_constraint.Comp_ID_2
       _Torsion_angle_constraint.Atom_ID_2
       _Torsion_angle_constraint.Assembly_atom_ID_3
-      _Torsion_angle_constraint.Seq_ID_3
+      _Torsion_angle_constraint.Comp_index_ID_3
       _Torsion_angle_constraint.Comp_ID_3
       _Torsion_angle_constraint.Atom_ID_3
       _Torsion_angle_constraint.Assembly_atom_ID_4
-      _Torsion_angle_constraint.Seq_ID_4
+      _Torsion_angle_constraint.Comp_index_ID_4
       _Torsion_angle_constraint.Comp_ID_4
       _Torsion_angle_constraint.Atom_ID_4
       _Torsion_angle_constraint.Angle_lower_bound_val
@@ -10386,19 +10386,19 @@ save_nef_dihedral_restraint_list_dihedral_constraint_list_1
       _Torsion_angle_constraint.Combination_ID
       _Torsion_angle_constraint.Torsion_angle_name
       _Torsion_angle_constraint.Entity_assembly_ID_1
-      _Torsion_angle_constraint.Seq_ID_1
+      _Torsion_angle_constraint.Comp_index_ID_1
       _Torsion_angle_constraint.Comp_ID_1
       _Torsion_angle_constraint.Atom_ID_1
       _Torsion_angle_constraint.Entity_assembly_ID_2
-      _Torsion_angle_constraint.Seq_ID_2
+      _Torsion_angle_constraint.Comp_index_ID_2
       _Torsion_angle_constraint.Comp_ID_2
       _Torsion_angle_constraint.Atom_ID_2
       _Torsion_angle_constraint.Assembly_atom_ID_3
-      _Torsion_angle_constraint.Seq_ID_3
+      _Torsion_angle_constraint.Comp_index_ID_3
       _Torsion_angle_constraint.Comp_ID_3
       _Torsion_angle_constraint.Atom_ID_3
       _Torsion_angle_constraint.Assembly_atom_ID_4
-      _Torsion_angle_constraint.Seq_ID_4
+      _Torsion_angle_constraint.Comp_index_ID_4
       _Torsion_angle_constraint.Comp_ID_4
       _Torsion_angle_constraint.Atom_ID_4
       _Torsion_angle_constraint.Angle_lower_bound_val
@@ -10500,6 +10500,7 @@ save_
 
 save_nef_rdc_restraint_list_peg_gel-1
    _RDC_constraint_list.Tensor_Entity_assembly_ID  .
+   _RDC_constraint_list.Tensor_Auth_seq_ID         76
    _RDC_constraint_list.Sf_category                RDC_constraints
    _RDC_constraint_list.Sf_framecode               nef_rdc_restraint_list_peg_gel-1
    _RDC_constraint_list.Potential_type             unknown
@@ -10507,7 +10508,6 @@ save_nef_rdc_restraint_list_peg_gel-1
    _RDC_constraint_list.Tensor_seq_ID              76
    _RDC_constraint_list.Tensor_comp_ID             .
    _RDC_constraint_list.Tensor_auth_asym_ID        .
-   _RDC_constraint_list.Tensor_auth_seq_ID         76
    _RDC_constraint_list.Tensor_auth_comp_ID        .
    _RDC_constraint_list.Tensor_magnitude           13.28
    _RDC_constraint_list.Tensor_rhombicity          0.252
@@ -10517,11 +10517,11 @@ save_nef_rdc_restraint_list_peg_gel-1
       _RDC_constraint.ID
       _RDC_constraint.Combination_ID
       _RDC_constraint.Entity_assembly_ID_1
-      _RDC_constraint.Seq_ID_1
+      _RDC_constraint.Comp_index_ID_1
       _RDC_constraint.Comp_ID_1
       _RDC_constraint.Atom_ID_1
       _RDC_constraint.Entity_assembly_ID_2
-      _RDC_constraint.Seq_ID_2
+      _RDC_constraint.Comp_index_ID_2
       _RDC_constraint.Comp_ID_2
       _RDC_constraint.Atom_ID_2
       _RDC_constraint.Weight
@@ -10583,6 +10583,7 @@ save_
 
 save_nef_rdc_restraint_list_peg_gel-2
    _RDC_constraint_list.Tensor_Entity_assembly_ID  .
+   _RDC_constraint_list.Tensor_Auth_seq_ID         82
    _RDC_constraint_list.Sf_category                RDC_constraints
    _RDC_constraint_list.Sf_framecode               nef_rdc_restraint_list_peg_gel-2
    _RDC_constraint_list.Potential_type             unknown
@@ -10590,7 +10591,6 @@ save_nef_rdc_restraint_list_peg_gel-2
    _RDC_constraint_list.Tensor_seq_ID              82
    _RDC_constraint_list.Tensor_comp_ID             .
    _RDC_constraint_list.Tensor_auth_asym_ID        .
-   _RDC_constraint_list.Tensor_auth_seq_ID         82
    _RDC_constraint_list.Tensor_auth_comp_ID        .
    _RDC_constraint_list.Tensor_magnitude           -1.255
    _RDC_constraint_list.Tensor_rhombicity          0.336
@@ -10600,11 +10600,11 @@ save_nef_rdc_restraint_list_peg_gel-2
       _RDC_constraint.ID
       _RDC_constraint.Combination_ID
       _RDC_constraint.Entity_assembly_ID_1
-      _RDC_constraint.Seq_ID_1
+      _RDC_constraint.Comp_index_ID_1
       _RDC_constraint.Comp_ID_1
       _RDC_constraint.Atom_ID_1
       _RDC_constraint.Entity_assembly_ID_2
-      _RDC_constraint.Seq_ID_2
+      _RDC_constraint.Comp_index_ID_2
       _RDC_constraint.Comp_ID_2
       _RDC_constraint.Atom_ID_2
       _RDC_constraint.Weight

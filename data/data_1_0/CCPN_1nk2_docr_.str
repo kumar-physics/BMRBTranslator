@@ -27,8 +27,8 @@ save_nef_molecular_system
 
    loop_
       _Chem_comp_assembly.Entity_assembly_ID
+      _Chem_comp_assembly.Comp_index_ID
       _Chem_comp_assembly.Comp_ID
-      _Chem_comp_assembly.Seq_ID
       _Chem_comp_assembly.Auth_asym_ID
       _Chem_comp_assembly.Auth_seq_ID
       _Chem_comp_assembly.Auth_comp_ID
@@ -37,115 +37,115 @@ save_nef_molecular_system
       _Chem_comp_assembly.Cis_residue
       _Chem_comp_assembly.NEF_index
 
-     1   DT    1    A   1     DT    .   start    .   1      
-     1   DG    2    A   2     DG    .   middle   .   2      
-     1   DT    3    A   3     DT    .   middle   .   3      
-     1   DG    4    A   4     DG    .   middle   .   4      
-     1   DT    5    A   5     DT    .   middle   .   5      
-     1   DC    6    A   6     DC    .   middle   .   6      
-     1   DA    7    A   7     DA    .   middle   .   7      
-     1   DA    8    A   8     DA    .   middle   .   8      
-     1   DG    9    A   9     DG    .   middle   .   9      
-     1   DT    10   A   10    DT    .   middle   .   10     
-     1   DG    11   A   11    DG    .   middle   .   11     
-     1   DG    12   A   12    DG    .   middle   .   12     
-     1   DC    13   A   13    DC    .   middle   .   13     
-     1   DT    14   A   14    DT    .   middle   .   14     
-     1   DG    15   A   15    DG    .   middle   .   15     
-     1   DT    16   A   16    DT    .   end      .   16     
-     2   DA    1    B   17    DA    .   start    .   17     
-     2   DC    2    B   18    DC    .   middle   .   18     
-     2   DA    3    B   19    DA    .   middle   .   19     
-     2   DG    4    B   20    DG    .   middle   .   20     
-     2   DC    5    B   21    DC    .   middle   .   21     
-     2   DC    6    B   22    DC    .   middle   .   22     
-     2   DA    7    B   23    DA    .   middle   .   23     
-     2   DC    8    B   24    DC    .   middle   .   24     
-     2   DT    9    B   25    DT    .   middle   .   25     
-     2   DT    10   B   26    DT    .   middle   .   26     
-     2   DG    11   B   27    DG    .   middle   .   27     
-     2   DA    12   B   28    DA    .   middle   .   28     
-     2   DC    13   B   29    DC    .   middle   .   29     
-     2   DA    14   B   30    DA    .   middle   .   30     
-     2   DC    15   B   31    DC    .   middle   .   31     
-     2   DA    16   B   32    DA    .   end      .   32     
-     3   ALA   1    C   101   ALA   .   start    .   33     
-     3   SER   2    C   102   SER   .   middle   .   34     
-     3   ASP   3    C   103   ASP   .   middle   .   35     
-     3   GLY   4    C   104   GLY   .   middle   .   36     
-     3   LEU   5    C   105   LEU   .   middle   .   37     
-     3   PRO   6    C   106   PRO   .   middle   .   38     
-     3   ASN   7    C   107   ASN   .   middle   .   39     
-     3   LYS   8    C   108   LYS   .   middle   .   40     
-     3   LYS   9    C   109   LYS   .   middle   .   41     
-     3   ARG   10   C   110   ARG   .   middle   .   42     
-     3   LYS   11   C   111   LYS   .   middle   .   43     
-     3   ARG   12   C   112   ARG   .   middle   .   44     
-     3   ARG   13   C   113   ARG   .   middle   .   45     
-     3   VAL   14   C   114   VAL   .   middle   .   46     
-     3   LEU   15   C   115   LEU   .   middle   .   47     
-     3   PHE   16   C   116   PHE   .   middle   .   48     
-     3   THR   17   C   117   THR   .   middle   .   49     
-     3   LYS   18   C   118   LYS   .   middle   .   50     
-     3   ALA   19   C   119   ALA   .   middle   .   51     
-     3   GLN   20   C   120   GLN   .   middle   .   52     
-     3   THR   21   C   121   THR   .   middle   .   53     
-     3   TYR   22   C   122   TYR   .   middle   .   54     
-     3   GLU   23   C   123   GLU   .   middle   .   55     
-     3   LEU   24   C   124   LEU   .   middle   .   56     
-     3   GLU   25   C   125   GLU   .   middle   .   57     
-     3   ARG   26   C   126   ARG   .   middle   .   58     
-     3   ARG   27   C   127   ARG   .   middle   .   59     
-     3   PHE   28   C   128   PHE   .   middle   .   60     
-     3   ARG   29   C   129   ARG   .   middle   .   61     
-     3   GLN   30   C   130   GLN   .   middle   .   62     
-     3   GLN   31   C   131   GLN   .   middle   .   63     
-     3   ARG   32   C   132   ARG   .   middle   .   64     
-     3   TYR   33   C   133   TYR   .   middle   .   65     
-     3   LEU   34   C   134   LEU   .   middle   .   66     
-     3   SER   35   C   135   SER   .   middle   .   67     
-     3   ALA   36   C   136   ALA   .   middle   .   68     
-     3   PRO   37   C   137   PRO   .   middle   .   69     
-     3   GLU   38   C   138   GLU   .   middle   .   70     
-     3   ARG   39   C   139   ARG   .   middle   .   71     
-     3   GLU   40   C   140   GLU   .   middle   .   72     
-     3   HIS   41   C   141   HIS   .   middle   .   73     
-     3   LEU   42   C   142   LEU   .   middle   .   74     
-     3   ALA   43   C   143   ALA   .   middle   .   75     
-     3   SER   44   C   144   SER   .   middle   .   76     
-     3   LEU   45   C   145   LEU   .   middle   .   77     
-     3   ILE   46   C   146   ILE   .   middle   .   78     
-     3   ARG   47   C   147   ARG   .   middle   .   79     
-     3   LEU   48   C   148   LEU   .   middle   .   80     
-     3   THR   49   C   149   THR   .   middle   .   81     
-     3   PRO   50   C   150   PRO   .   middle   .   82     
-     3   THR   51   C   151   THR   .   middle   .   83     
-     3   GLN   52   C   152   GLN   .   middle   .   84     
-     3   VAL   53   C   153   VAL   .   middle   .   85     
-     3   LYS   54   C   154   LYS   .   middle   .   86     
-     3   ILE   55   C   155   ILE   .   middle   .   87     
-     3   TRP   56   C   156   TRP   .   middle   .   88     
-     3   PHE   57   C   157   PHE   .   middle   .   89     
-     3   GLN   58   C   158   GLN   .   middle   .   90     
-     3   ASN   59   C   159   ASN   .   middle   .   91     
-     3   HIS   60   C   160   HIS   .   middle   .   92     
-     3   ARG   61   C   161   ARG   .   middle   .   93     
-     3   TYR   62   C   162   TYR   .   middle   .   94     
-     3   LYS   63   C   163   LYS   .   middle   .   95     
-     3   THR   64   C   164   THR   .   middle   .   96     
-     3   LYS   65   C   165   LYS   .   middle   .   97     
-     3   ARG   66   C   166   ARG   .   middle   .   98     
-     3   ALA   67   C   167   ALA   .   middle   .   99     
-     3   GLN   68   C   168   GLN   .   middle   .   100    
-     3   ASN   69   C   169   ASN   .   middle   .   101    
-     3   GLU   70   C   170   GLU   .   middle   .   102    
-     3   LYS   71   C   171   LYS   .   middle   .   103    
-     3   GLY   72   C   172   GLY   .   middle   .   104    
-     3   TYR   73   C   173   TYR   .   middle   .   105    
-     3   GLU   74   C   174   GLU   .   middle   .   106    
-     3   GLY   75   C   175   GLY   .   middle   .   107    
-     3   HIS   76   C   176   HIS   .   middle   .   108    
-     3   PRO   77   C   177   PRO   .   end      .   109    
+     1   1    DT    A   1     DT    .   start    .   1      
+     1   2    DG    A   2     DG    .   middle   .   2      
+     1   3    DT    A   3     DT    .   middle   .   3      
+     1   4    DG    A   4     DG    .   middle   .   4      
+     1   5    DT    A   5     DT    .   middle   .   5      
+     1   6    DC    A   6     DC    .   middle   .   6      
+     1   7    DA    A   7     DA    .   middle   .   7      
+     1   8    DA    A   8     DA    .   middle   .   8      
+     1   9    DG    A   9     DG    .   middle   .   9      
+     1   10   DT    A   10    DT    .   middle   .   10     
+     1   11   DG    A   11    DG    .   middle   .   11     
+     1   12   DG    A   12    DG    .   middle   .   12     
+     1   13   DC    A   13    DC    .   middle   .   13     
+     1   14   DT    A   14    DT    .   middle   .   14     
+     1   15   DG    A   15    DG    .   middle   .   15     
+     1   16   DT    A   16    DT    .   end      .   16     
+     2   1    DA    B   17    DA    .   start    .   17     
+     2   2    DC    B   18    DC    .   middle   .   18     
+     2   3    DA    B   19    DA    .   middle   .   19     
+     2   4    DG    B   20    DG    .   middle   .   20     
+     2   5    DC    B   21    DC    .   middle   .   21     
+     2   6    DC    B   22    DC    .   middle   .   22     
+     2   7    DA    B   23    DA    .   middle   .   23     
+     2   8    DC    B   24    DC    .   middle   .   24     
+     2   9    DT    B   25    DT    .   middle   .   25     
+     2   10   DT    B   26    DT    .   middle   .   26     
+     2   11   DG    B   27    DG    .   middle   .   27     
+     2   12   DA    B   28    DA    .   middle   .   28     
+     2   13   DC    B   29    DC    .   middle   .   29     
+     2   14   DA    B   30    DA    .   middle   .   30     
+     2   15   DC    B   31    DC    .   middle   .   31     
+     2   16   DA    B   32    DA    .   end      .   32     
+     3   1    ALA   C   101   ALA   .   start    .   33     
+     3   2    SER   C   102   SER   .   middle   .   34     
+     3   3    ASP   C   103   ASP   .   middle   .   35     
+     3   4    GLY   C   104   GLY   .   middle   .   36     
+     3   5    LEU   C   105   LEU   .   middle   .   37     
+     3   6    PRO   C   106   PRO   .   middle   .   38     
+     3   7    ASN   C   107   ASN   .   middle   .   39     
+     3   8    LYS   C   108   LYS   .   middle   .   40     
+     3   9    LYS   C   109   LYS   .   middle   .   41     
+     3   10   ARG   C   110   ARG   .   middle   .   42     
+     3   11   LYS   C   111   LYS   .   middle   .   43     
+     3   12   ARG   C   112   ARG   .   middle   .   44     
+     3   13   ARG   C   113   ARG   .   middle   .   45     
+     3   14   VAL   C   114   VAL   .   middle   .   46     
+     3   15   LEU   C   115   LEU   .   middle   .   47     
+     3   16   PHE   C   116   PHE   .   middle   .   48     
+     3   17   THR   C   117   THR   .   middle   .   49     
+     3   18   LYS   C   118   LYS   .   middle   .   50     
+     3   19   ALA   C   119   ALA   .   middle   .   51     
+     3   20   GLN   C   120   GLN   .   middle   .   52     
+     3   21   THR   C   121   THR   .   middle   .   53     
+     3   22   TYR   C   122   TYR   .   middle   .   54     
+     3   23   GLU   C   123   GLU   .   middle   .   55     
+     3   24   LEU   C   124   LEU   .   middle   .   56     
+     3   25   GLU   C   125   GLU   .   middle   .   57     
+     3   26   ARG   C   126   ARG   .   middle   .   58     
+     3   27   ARG   C   127   ARG   .   middle   .   59     
+     3   28   PHE   C   128   PHE   .   middle   .   60     
+     3   29   ARG   C   129   ARG   .   middle   .   61     
+     3   30   GLN   C   130   GLN   .   middle   .   62     
+     3   31   GLN   C   131   GLN   .   middle   .   63     
+     3   32   ARG   C   132   ARG   .   middle   .   64     
+     3   33   TYR   C   133   TYR   .   middle   .   65     
+     3   34   LEU   C   134   LEU   .   middle   .   66     
+     3   35   SER   C   135   SER   .   middle   .   67     
+     3   36   ALA   C   136   ALA   .   middle   .   68     
+     3   37   PRO   C   137   PRO   .   middle   .   69     
+     3   38   GLU   C   138   GLU   .   middle   .   70     
+     3   39   ARG   C   139   ARG   .   middle   .   71     
+     3   40   GLU   C   140   GLU   .   middle   .   72     
+     3   41   HIS   C   141   HIS   .   middle   .   73     
+     3   42   LEU   C   142   LEU   .   middle   .   74     
+     3   43   ALA   C   143   ALA   .   middle   .   75     
+     3   44   SER   C   144   SER   .   middle   .   76     
+     3   45   LEU   C   145   LEU   .   middle   .   77     
+     3   46   ILE   C   146   ILE   .   middle   .   78     
+     3   47   ARG   C   147   ARG   .   middle   .   79     
+     3   48   LEU   C   148   LEU   .   middle   .   80     
+     3   49   THR   C   149   THR   .   middle   .   81     
+     3   50   PRO   C   150   PRO   .   middle   .   82     
+     3   51   THR   C   151   THR   .   middle   .   83     
+     3   52   GLN   C   152   GLN   .   middle   .   84     
+     3   53   VAL   C   153   VAL   .   middle   .   85     
+     3   54   LYS   C   154   LYS   .   middle   .   86     
+     3   55   ILE   C   155   ILE   .   middle   .   87     
+     3   56   TRP   C   156   TRP   .   middle   .   88     
+     3   57   PHE   C   157   PHE   .   middle   .   89     
+     3   58   GLN   C   158   GLN   .   middle   .   90     
+     3   59   ASN   C   159   ASN   .   middle   .   91     
+     3   60   HIS   C   160   HIS   .   middle   .   92     
+     3   61   ARG   C   161   ARG   .   middle   .   93     
+     3   62   TYR   C   162   TYR   .   middle   .   94     
+     3   63   LYS   C   163   LYS   .   middle   .   95     
+     3   64   THR   C   164   THR   .   middle   .   96     
+     3   65   LYS   C   165   LYS   .   middle   .   97     
+     3   66   ARG   C   166   ARG   .   middle   .   98     
+     3   67   ALA   C   167   ALA   .   middle   .   99     
+     3   68   GLN   C   168   GLN   .   middle   .   100    
+     3   69   ASN   C   169   ASN   .   middle   .   101    
+     3   70   GLU   C   170   GLU   .   middle   .   102    
+     3   71   LYS   C   171   LYS   .   middle   .   103    
+     3   72   GLY   C   172   GLY   .   middle   .   104    
+     3   73   TYR   C   173   TYR   .   middle   .   105    
+     3   74   GLU   C   174   GLU   .   middle   .   106    
+     3   75   GLY   C   175   GLY   .   middle   .   107    
+     3   76   HIS   C   176   HIS   .   middle   .   108    
+     3   77   PRO   C   177   PRO   .   end      .   109    
    stop_
 save_
 
@@ -193,7 +193,7 @@ save_nef_chemical_shift_list_4141_DNA+
 
    loop_
       _Atom_chem_shift.Entity_assembly_ID
-      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_index_ID
       _Atom_chem_shift.Comp_ID
       _Atom_chem_shift.Atom_ID
       _Atom_chem_shift.Atom_type
@@ -419,7 +419,7 @@ save_nef_chemical_shift_list_4141_DNA-
 
    loop_
       _Atom_chem_shift.Entity_assembly_ID
-      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_index_ID
       _Atom_chem_shift.Comp_ID
       _Atom_chem_shift.Atom_ID
       _Atom_chem_shift.Atom_type
@@ -628,7 +628,7 @@ save_nef_chemical_shift_list_4141_protein
 
    loop_
       _Atom_chem_shift.Entity_assembly_ID
-      _Atom_chem_shift.Seq_ID
+      _Atom_chem_shift.Comp_index_ID
       _Atom_chem_shift.Comp_ID
       _Atom_chem_shift.Atom_ID
       _Atom_chem_shift.Atom_type
@@ -1711,11 +1711,11 @@ save_nef_distance_restraint_list_hBond_constraint_list
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -1878,11 +1878,11 @@ save_nef_distance_restraint_list_Distance
       _Gen_dist_constraint.Combination_ID
       _Gen_dist_constraint.Member_logic_code
       _Gen_dist_constraint.Entity_assembly_ID_1
-      _Gen_dist_constraint.Seq_ID_1
+      _Gen_dist_constraint.Comp_index_ID_1
       _Gen_dist_constraint.Comp_ID_1
       _Gen_dist_constraint.Atom_ID_1
       _Gen_dist_constraint.Entity_assembly_ID_2
-      _Gen_dist_constraint.Seq_ID_2
+      _Gen_dist_constraint.Comp_index_ID_2
       _Gen_dist_constraint.Comp_ID_2
       _Gen_dist_constraint.Atom_ID_2
       _Gen_dist_constraint.Target_val
@@ -10635,19 +10635,19 @@ save_nef_dihedral_restraint_list_dihedral_constraint_list
       _Torsion_angle_constraint.Combination_ID
       _Torsion_angle_constraint.Torsion_angle_name
       _Torsion_angle_constraint.Entity_assembly_ID_1
-      _Torsion_angle_constraint.Seq_ID_1
+      _Torsion_angle_constraint.Comp_index_ID_1
       _Torsion_angle_constraint.Comp_ID_1
       _Torsion_angle_constraint.Atom_ID_1
       _Torsion_angle_constraint.Entity_assembly_ID_2
-      _Torsion_angle_constraint.Seq_ID_2
+      _Torsion_angle_constraint.Comp_index_ID_2
       _Torsion_angle_constraint.Comp_ID_2
       _Torsion_angle_constraint.Atom_ID_2
       _Torsion_angle_constraint.Assembly_atom_ID_3
-      _Torsion_angle_constraint.Seq_ID_3
+      _Torsion_angle_constraint.Comp_index_ID_3
       _Torsion_angle_constraint.Comp_ID_3
       _Torsion_angle_constraint.Atom_ID_3
       _Torsion_angle_constraint.Assembly_atom_ID_4
-      _Torsion_angle_constraint.Seq_ID_4
+      _Torsion_angle_constraint.Comp_index_ID_4
       _Torsion_angle_constraint.Comp_ID_4
       _Torsion_angle_constraint.Atom_ID_4
       _Torsion_angle_constraint.Angle_lower_bound_val
