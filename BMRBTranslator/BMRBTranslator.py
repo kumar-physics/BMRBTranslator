@@ -183,6 +183,7 @@ class BMRBTranslator(object):
                     if sf.category=="assigned_chemical_shifts":
                         lp.add_column("_Atom_chem_shift.Ambiguity_code")
                         lp.add_column("_Atom_chem_shift.Assigned_chem_shift_list_ID")
+                        lp.add_column("_Atom_chem_shift.ID")
                         chemical_shift_list_id +=1
                     if sf.category=="general_distance_constraints":
                         lp.add_column("_Gen_dist_constraint.Member_logic_code")
@@ -249,6 +250,7 @@ class BMRBTranslator(object):
                                             if sf.category == "assigned_chemical_shifts":
                                                 lp_data.append('1')
                                                 lp_data.append(chemical_shift_list_id)
+                                                lp_data.append(0) # tem atom_chem_shift ID
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
                                         elif len(star_atm_list) == 1:
@@ -258,9 +260,11 @@ class BMRBTranslator(object):
                                                 if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
                                                     lp_dat.append('2')
                                                     lp_data.append(chemical_shift_list_id)
+                                                    lp_data.append(0) # tem atom_chem_shift ID
                                                 else:
                                                     lp_dat.append('1')
                                                     lp_data.append(chemical_shift_list_id)
+                                                    lp_data.append(0) # tem atom_chem_shift ID
                                             if sf.category=="general_distance_constraints" and lp_data[-1]!="OR":
                                                 lp_dat.append("OR")
                                         else: 
@@ -271,9 +275,11 @@ class BMRBTranslator(object):
                                                     if "x" in nef_atm_name or "X" in nef_atm_name or "y" in nef_atm_name or "Y" in nef_atm_name:
                                                         tmp.append('2')
                                                         tmp.append(chemical_shift_list_id)
+                                                        tmp.append(0) # tem atom_chem_shift ID
                                                     else:
                                                         tmp.append('1')
                                                         tmp.append(chemical_shift_list_id)
+                                                        tmp.append(0) # tem atom_chem_shift ID
                                                 if sf.category=="general_distance_constraints" and tmp[-1]!="OR":
                                                     tmp.append("OR")
                                                 
