@@ -6,7 +6,7 @@ Created on Jan 18, 2017
 
 import ntpath,os,csv,re,time,datetime,string,sys
 try:
-    import pynmrsta as bmrb
+    import pynmrstar as bmrb
 except ImportError as e:
     #print "Using local STAR parser",str(e) 
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
@@ -22,7 +22,7 @@ class BMRBTranslator(object):
     '''
     Main class for BMRBTranslator
     '''
-    __version__="v1.0-7-g48d8d88"
+    __version__="v1.0-16-g488b873"
     (scriptPath,scriptName)=ntpath.split(os.path.realpath(__file__))
     mapFile = scriptPath+'/../lib/NEF_NMRSTAR_equivalence.csv'
     _write_non_stand_data = True
