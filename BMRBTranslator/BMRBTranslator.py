@@ -99,7 +99,7 @@ class BMRBTranslator(object):
         self.log.write("%s:%s\n"%(string.ljust("Output",25),self.starFile))
         self.log.write("%s:%s\n"%(string.ljust("Log ",25),self.logFile))
         self.log.write("%s:%s\n"%(string.ljust("Translator Version",25),self.__version__))
-        self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb._VERSION))
+        self.log.write("%s:%s\n"%(string.ljust("STAR parser Version",25),bmrb.__version__))
         self.log.write("%s:%s\n\n"%(string.ljust("Date",25),self.TimeStamp(time.time())))
         if self._write_non_stand_data:
             self.Log("Software specific data(SS DATA) handling enabled")
@@ -518,16 +518,23 @@ class BMRBTranslator(object):
                 else:
                     print "Wrong regular expression"
             except IndexError:
+                
                 #print nefAtom
                 pass
             if len(alist)==0:
                 if nefAtom in atms:
                     alist.append(nefAtom)
+                else:
+                    if nefAtom == "H%":
+                        alist=['H1','H2','H3']
         except KeyError:
             #self.logfile.write("%s\tResidue not found,%s,%s\n"%(self.TimeStamp(time.time()),res,nefAtom))
             #print "Residue not found",res,nefAtom
             if res!="." : self.Log("Non-standard residue found %s"%(res),1)
             alist=[]
+            
+            if nefAtom == "H%":
+                    alist=['H1','H2','H3']
         return alist                    
      
         
