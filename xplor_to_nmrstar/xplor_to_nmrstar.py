@@ -93,12 +93,56 @@ class xplor_to_nmrstar(object):
                                 pseudo1 = "HN"
                             if pseudo2 == "H":
                                 pseudo2 = "HN"
-                            if r1=="LEU" and pseudo1 == "HB2":
+                            if r1 in ["LEU","ASN","GLU","LYS","TYR","GLN","ARG","ASP","SER","MET","PHE"] and pseudo1 == "HB2":
                                 pseudo1="HB1"
-                            if r1=="LEU" and pseudo1 == "HB3":
-                                pseudo1="HB2"
+                            if r1 in ["LEU","ASN","GLU","LYS","TYR","GLN","ARG","ASP","SER","MET","PHE"] and pseudo1 == "HB3":
+                                pseudo1= "HB2"
+                            if r2 in ["LEU","ASN","GLU","LYS","TYR","GLN","ARG","ASP","SER","MET","PHE"] and pseudo2 == "HB2":
+                                pseudo2="HB1"
+                            if r2 in ["LEU","ASN","GLU","LYS","TYR","GLN","ARG","ASP","SER","MET","PHE"] and pseudo2 == "HB3":
+                                pseudo2= "HB2"
+                            if r1 in ["GLU","LYS","GLN","ARG","MET"] and pseudo1 == "HG2":
+                                pseudo1 = "HG1"
+                            if r1 in ["GLU","LYS","GLN","ARG","MET"] and pseudo1 == "HG3":
+                                pseudo1 = "HG2"
+                            if r2 in ["GLU","LYS","GLN","ARG","MET"] and pseudo2 == "HG2":
+                                pseudo2 = "HG1"
+                            if r2 in ["GLU","LYS","GLN","ARG","MET"] and pseudo2 == "HG3":
+                                pseudo2 = "HG2"
+                            if r1 == "ILE" and pseudo1 == "HG12":
+                                pseudo1 = "HG11"
+                            if r1 == "ILE" and pseudo1 == "HG13":
+                                pseudo1 = "HG12"
+                            if r2 == "ILE" and pseudo2 == "HG12":
+                                pseudo2 = "HG11"
+                            if r2 == "ILE" and pseudo2 == "HG13":
+                                pseudo2 = "HG12"
+                            if r1 in ["LYS","ARG"] and pseudo1 == "HD2":
+                                pseudo1 = "HD1"
+                            if r1 in ["LYS","ARG"] and pseudo1 == "HD3":
+                                pseudo1 = "HD2"
+                            if r2 in ["LYS","ARG"] and pseudo2 == "HD2":
+                                pseudo2 = "HD1"
+                            if r2 in ["LYS","ARG"] and pseudo2 == "HD3":
+                                pseudo2 = "HD2"
+                            if r1 == "GLY" and pseudo1 == "HA2":
+                                pseudo1 = "HA1"
+                            if r1 == "GLY" and pseudo1 == "HA3":
+                                pseudo1 = "HA2"
+                            if r2 == "GLY" and pseudo2 == "HA2":
+                                pseudo2 = "HA1"
+                            if r2 == "GLY" and pseudo2 == "HA3":
+                                pseudo2 = "HA2"
+                            if r1 == "LYS" and pseudo1 == "HE2":
+                                pseudo1 = "HE1"
+                            if r1 == "LYS" and pseudo1 == "HE3":
+                                pseudo1 = "HE2"
+                            if r2 == "LYS" and pseudo2 == "HE2":
+                                pseudo2 = "HE1"
+                            if r2 == "LYS" and pseudo2 == "HE3":
+                                pseudo2 = "HE2"
                             fout.write('assign (resid {} and name {}) '
-                                       'resid {} and name {}) {} {} {}\n'.format(sq1,pseudo1,sq2,pseudo2,d,dm,dp))
+                                       '(resid {} and name {}) {} {} {}\n'.format(sq1,pseudo1,sq2,pseudo2,d,dm,dp))
                            # print (row[id], self.get_psudo_atom(atom1),self.get_psudo_atom(atom2),d,dm,dp)
                         atom1 = [row[atm1]]
                         atom2 = [row[atm2]]
@@ -139,7 +183,7 @@ class xplor_to_nmrstar(object):
                         t_value = round(float(row[lb])+ang/2.0,2)
                         tol = round(ang/2.0,2)
                     fout.write('assign (resid {} and name {}) (resid {} '
-                               'and name {}\n'.format(row[seq1],row[atm1],row[seq2],row[atm2]))
+                               'and name {})\n'.format(row[seq1],row[atm1],row[seq2],row[atm2]))
                     fout.write('\t(resid {} and name {}) (resid {} '
                                'and name {}) 1.0 {} {} 2\n'.format(row[seq3],row[atm3],row[seq4],row[atm4],t_value,tol))
 
