@@ -1,0 +1,392 @@
+assign (resid 2 and name C) (resid 3 and name N
+	(resid 3 and name CA) (resid 3 and name C) 1.0 -115.75 20.25 2
+assign (resid 3 and name N) (resid 3 and name CA
+	(resid 3 and name C) (resid 4 and name N) 1.0 130.2 20.0 2
+assign (resid 3 and name C) (resid 4 and name N
+	(resid 4 and name CA) (resid 4 and name C) 1.0 -116.8 25.5 2
+assign (resid 4 and name N) (resid 4 and name CA
+	(resid 4 and name C) (resid 5 and name N) 1.0 132.05 21.15 2
+assign (resid 4 and name C) (resid 5 and name N
+	(resid 5 and name CA) (resid 5 and name C) 1.0 -108.1 27.0 2
+assign (resid 5 and name N) (resid 5 and name CA
+	(resid 5 and name C) (resid 6 and name N) 1.0 124.4 20.0 2
+assign (resid 5 and name C) (resid 6 and name N
+	(resid 6 and name CA) (resid 6 and name C) 1.0 -110.7 23.5 2
+assign (resid 6 and name N) (resid 6 and name CA
+	(resid 6 and name C) (resid 7 and name N) 1.0 135.85 23.75 2
+assign (resid 6 and name C) (resid 7 and name N
+	(resid 7 and name CA) (resid 7 and name C) 1.0 -125.85 24.35 2
+assign (resid 7 and name N) (resid 7 and name CA
+	(resid 7 and name C) (resid 8 and name N) 1.0 140.3 20.0 2
+assign (resid 7 and name C) (resid 8 and name N
+	(resid 8 and name CA) (resid 8 and name C) 1.0 -125.8 23.8 2
+assign (resid 8 and name N) (resid 8 and name CA
+	(resid 8 and name C) (resid 9 and name N) 1.0 135.9 20.0 2
+assign (resid 8 and name C) (resid 9 and name N
+	(resid 9 and name CA) (resid 9 and name C) 1.0 -100.5 22.1 2
+assign (resid 9 and name N) (resid 9 and name CA
+	(resid 9 and name C) (resid 10 and name N) 1.0 120.05 23.75 2
+assign (resid 11 and name C) (resid 12 and name N
+	(resid 12 and name CA) (resid 12 and name C) 1.0 -59.1 20.0 2
+assign (resid 12 and name N) (resid 12 and name CA
+	(resid 12 and name C) (resid 13 and name N) 1.0 -35.3 20.0 2
+assign (resid 12 and name C) (resid 13 and name N
+	(resid 13 and name CA) (resid 13 and name C) 1.0 -65.2 20.0 2
+assign (resid 13 and name N) (resid 13 and name CA
+	(resid 13 and name C) (resid 14 and name N) 1.0 -39.2 20.0 2
+assign (resid 13 and name C) (resid 14 and name N
+	(resid 14 and name CA) (resid 14 and name C) 1.0 -63.5 20.0 2
+assign (resid 14 and name N) (resid 14 and name CA
+	(resid 14 and name C) (resid 15 and name N) 1.0 -45.5 20.0 2
+assign (resid 14 and name C) (resid 15 and name N
+	(resid 15 and name CA) (resid 15 and name C) 1.0 -62.3 20.0 2
+assign (resid 15 and name N) (resid 15 and name CA
+	(resid 15 and name C) (resid 16 and name N) 1.0 -47.4 20.0 2
+assign (resid 15 and name C) (resid 16 and name N
+	(resid 16 and name CA) (resid 16 and name C) 1.0 -59.2 20.0 2
+assign (resid 16 and name N) (resid 16 and name CA
+	(resid 16 and name C) (resid 17 and name N) 1.0 -39.7 20.0 2
+assign (resid 16 and name C) (resid 17 and name N
+	(resid 17 and name CA) (resid 17 and name C) 1.0 -62.7 20.0 2
+assign (resid 17 and name N) (resid 17 and name CA
+	(resid 17 and name C) (resid 18 and name N) 1.0 -43.0 20.0 2
+assign (resid 17 and name C) (resid 18 and name N
+	(resid 18 and name CA) (resid 18 and name C) 1.0 -64.7 20.0 2
+assign (resid 18 and name N) (resid 18 and name CA
+	(resid 18 and name C) (resid 19 and name N) 1.0 -46.1 20.0 2
+assign (resid 18 and name C) (resid 19 and name N
+	(resid 19 and name CA) (resid 19 and name C) 1.0 -57.6 20.0 2
+assign (resid 19 and name N) (resid 19 and name CA
+	(resid 19 and name C) (resid 20 and name N) 1.0 -47.1 20.0 2
+assign (resid 19 and name C) (resid 20 and name N
+	(resid 20 and name CA) (resid 20 and name C) 1.0 -61.4 20.0 2
+assign (resid 20 and name N) (resid 20 and name CA
+	(resid 20 and name C) (resid 21 and name N) 1.0 -36.7 20.0 2
+assign (resid 20 and name C) (resid 21 and name N
+	(resid 21 and name CA) (resid 21 and name C) 1.0 -63.65 22.55 2
+assign (resid 21 and name N) (resid 21 and name CA
+	(resid 21 and name C) (resid 22 and name N) 1.0 -33.0 20.0 2
+assign (resid 21 and name C) (resid 22 and name N
+	(resid 22 and name CA) (resid 22 and name C) 1.0 -86.85 30.85 2
+assign (resid 22 and name N) (resid 22 and name CA
+	(resid 22 and name C) (resid 23 and name N) 1.0 -6.6 37.7 2
+assign (resid 27 and name C) (resid 28 and name N
+	(resid 28 and name CA) (resid 28 and name C) 1.0 -97.5 37.2 2
+assign (resid 28 and name N) (resid 28 and name CA
+	(resid 28 and name C) (resid 29 and name N) 1.0 134.9 35.2 2
+assign (resid 28 and name C) (resid 29 and name N
+	(resid 29 and name CA) (resid 29 and name C) 1.0 -100.25 28.15 2
+assign (resid 29 and name N) (resid 29 and name CA
+	(resid 29 and name C) (resid 30 and name N) 1.0 120.9 20.0 2
+assign (resid 29 and name C) (resid 30 and name N
+	(resid 30 and name CA) (resid 30 and name C) 1.0 -108.3 20.0 2
+assign (resid 30 and name N) (resid 30 and name CA
+	(resid 30 and name C) (resid 31 and name N) 1.0 136.4 24.1 2
+assign (resid 30 and name C) (resid 31 and name N
+	(resid 31 and name CA) (resid 31 and name C) 1.0 -107.0 34.2 2
+assign (resid 31 and name N) (resid 31 and name CA
+	(resid 31 and name C) (resid 32 and name N) 1.0 139.5 20.0 2
+assign (resid 31 and name C) (resid 32 and name N
+	(resid 32 and name CA) (resid 32 and name C) 1.0 -109.3 67.3 2
+assign (resid 32 and name N) (resid 32 and name CA
+	(resid 32 and name C) (resid 33 and name N) 1.0 142.9 24.5 2
+assign (resid 34 and name C) (resid 35 and name N
+	(resid 35 and name CA) (resid 35 and name C) 1.0 -59.8 20.0 2
+assign (resid 35 and name N) (resid 35 and name CA
+	(resid 35 and name C) (resid 36 and name N) 1.0 -36.9 20.0 2
+assign (resid 35 and name C) (resid 36 and name N
+	(resid 36 and name CA) (resid 36 and name C) 1.0 -66.1 20.0 2
+assign (resid 36 and name N) (resid 36 and name CA
+	(resid 36 and name C) (resid 37 and name N) 1.0 -42.8 20.0 2
+assign (resid 36 and name C) (resid 37 and name N
+	(resid 37 and name CA) (resid 37 and name C) 1.0 -64.0 20.0 2
+assign (resid 37 and name N) (resid 37 and name CA
+	(resid 37 and name C) (resid 38 and name N) 1.0 -43.7 20.0 2
+assign (resid 37 and name C) (resid 38 and name N
+	(resid 38 and name CA) (resid 38 and name C) 1.0 -62.9 20.0 2
+assign (resid 38 and name N) (resid 38 and name CA
+	(resid 38 and name C) (resid 39 and name N) 1.0 -40.7 20.0 2
+assign (resid 38 and name C) (resid 39 and name N
+	(resid 39 and name CA) (resid 39 and name C) 1.0 -61.0 20.0 2
+assign (resid 39 and name N) (resid 39 and name CA
+	(resid 39 and name C) (resid 40 and name N) 1.0 -45.1 20.0 2
+assign (resid 39 and name C) (resid 40 and name N
+	(resid 40 and name CA) (resid 40 and name C) 1.0 -64.8 20.0 2
+assign (resid 40 and name N) (resid 40 and name CA
+	(resid 40 and name C) (resid 41 and name N) 1.0 -44.7 20.0 2
+assign (resid 40 and name C) (resid 41 and name N
+	(resid 41 and name CA) (resid 41 and name C) 1.0 -64.7 20.0 2
+assign (resid 41 and name N) (resid 41 and name CA
+	(resid 41 and name C) (resid 42 and name N) 1.0 -39.6 20.0 2
+assign (resid 41 and name C) (resid 42 and name N
+	(resid 42 and name CA) (resid 42 and name C) 1.0 -67.6 20.0 2
+assign (resid 42 and name N) (resid 42 and name CA
+	(resid 42 and name C) (resid 43 and name N) 1.0 -36.0 20.0 2
+assign (resid 42 and name C) (resid 43 and name N
+	(resid 43 and name CA) (resid 43 and name C) 1.0 -62.7 20.0 2
+assign (resid 43 and name N) (resid 43 and name CA
+	(resid 43 and name C) (resid 44 and name N) 1.0 -40.6 20.0 2
+assign (resid 43 and name C) (resid 44 and name N
+	(resid 44 and name CA) (resid 44 and name C) 1.0 -61.8 20.0 2
+assign (resid 44 and name N) (resid 44 and name CA
+	(resid 44 and name C) (resid 45 and name N) 1.0 -38.6 25.2 2
+assign (resid 44 and name C) (resid 45 and name N
+	(resid 45 and name CA) (resid 45 and name C) 1.0 -64.4 20.0 2
+assign (resid 45 and name N) (resid 45 and name CA
+	(resid 45 and name C) (resid 46 and name N) 1.0 -38.2 22.3 2
+assign (resid 45 and name C) (resid 46 and name N
+	(resid 46 and name CA) (resid 46 and name C) 1.0 -71.65 40.95 2
+assign (resid 46 and name N) (resid 46 and name CA
+	(resid 46 and name C) (resid 47 and name N) 1.0 -33.6 30.6 2
+assign (resid 46 and name C) (resid 47 and name N
+	(resid 47 and name CA) (resid 47 and name C) 1.0 -86.35 31.75 2
+assign (resid 47 and name N) (resid 47 and name CA
+	(resid 47 and name C) (resid 48 and name N) 1.0 -18.6 37.8 2
+assign (resid 53 and name C) (resid 54 and name N
+	(resid 54 and name CA) (resid 54 and name C) 1.0 -116.05 26.85 2
+assign (resid 54 and name N) (resid 54 and name CA
+	(resid 54 and name C) (resid 55 and name N) 1.0 136.0 20.0 2
+assign (resid 54 and name C) (resid 55 and name N
+	(resid 55 and name CA) (resid 55 and name C) 1.0 -107.7 29.7 2
+assign (resid 55 and name N) (resid 55 and name CA
+	(resid 55 and name C) (resid 56 and name N) 1.0 125.9 23.7 2
+assign (resid 55 and name C) (resid 56 and name N
+	(resid 56 and name CA) (resid 56 and name C) 1.0 -111.9 20.5 2
+assign (resid 56 and name N) (resid 56 and name CA
+	(resid 56 and name C) (resid 57 and name N) 1.0 132.5 20.0 2
+assign (resid 56 and name C) (resid 57 and name N
+	(resid 57 and name CA) (resid 57 and name C) 1.0 -126.9 46.2 2
+assign (resid 57 and name N) (resid 57 and name CA
+	(resid 57 and name C) (resid 58 and name N) 1.0 136.55 53.65 2
+assign (resid 57 and name C) (resid 58 and name N
+	(resid 58 and name CA) (resid 58 and name C) 1.0 -132.7 20.0 2
+assign (resid 58 and name N) (resid 58 and name CA
+	(resid 58 and name C) (resid 59 and name N) 1.0 147.4 28.0 2
+assign (resid 60 and name C) (resid 61 and name N
+	(resid 61 and name CA) (resid 61 and name C) 1.0 -58.5 20.0 2
+assign (resid 61 and name N) (resid 61 and name CA
+	(resid 61 and name C) (resid 62 and name N) 1.0 -34.5 20.0 2
+assign (resid 61 and name C) (resid 62 and name N
+	(resid 62 and name CA) (resid 62 and name C) 1.0 -63.4 20.0 2
+assign (resid 62 and name N) (resid 62 and name CA
+	(resid 62 and name C) (resid 63 and name N) 1.0 -40.8 20.0 2
+assign (resid 62 and name C) (resid 63 and name N
+	(resid 63 and name CA) (resid 63 and name C) 1.0 -68.8 31.3 2
+assign (resid 63 and name N) (resid 63 and name CA
+	(resid 63 and name C) (resid 64 and name N) 1.0 -31.7 35.9 2
+assign (resid 63 and name C) (resid 64 and name N
+	(resid 64 and name CA) (resid 64 and name C) 1.0 -65.9 20.0 2
+assign (resid 64 and name N) (resid 64 and name CA
+	(resid 64 and name C) (resid 65 and name N) 1.0 -38.0 20.0 2
+assign (resid 64 and name C) (resid 65 and name N
+	(resid 65 and name CA) (resid 65 and name C) 1.0 -63.1 20.0 2
+assign (resid 65 and name N) (resid 65 and name CA
+	(resid 65 and name C) (resid 66 and name N) 1.0 -41.7 20.0 2
+assign (resid 65 and name C) (resid 66 and name N
+	(resid 66 and name CA) (resid 66 and name C) 1.0 -67.3 20.0 2
+assign (resid 66 and name N) (resid 66 and name CA
+	(resid 66 and name C) (resid 67 and name N) 1.0 -40.3 20.0 2
+assign (resid 66 and name C) (resid 67 and name N
+	(resid 67 and name CA) (resid 67 and name C) 1.0 -62.8 20.0 2
+assign (resid 67 and name N) (resid 67 and name CA
+	(resid 67 and name C) (resid 68 and name N) 1.0 -43.4 20.0 2
+assign (resid 67 and name C) (resid 68 and name N
+	(resid 68 and name CA) (resid 68 and name C) 1.0 -63.5 20.0 2
+assign (resid 68 and name N) (resid 68 and name CA
+	(resid 68 and name C) (resid 69 and name N) 1.0 -42.0 20.0 2
+assign (resid 68 and name C) (resid 69 and name N
+	(resid 69 and name CA) (resid 69 and name C) 1.0 -63.6 20.0 2
+assign (resid 69 and name N) (resid 69 and name CA
+	(resid 69 and name C) (resid 70 and name N) 1.0 -43.7 20.0 2
+assign (resid 69 and name C) (resid 70 and name N
+	(resid 70 and name CA) (resid 70 and name C) 1.0 -65.0 20.0 2
+assign (resid 70 and name N) (resid 70 and name CA
+	(resid 70 and name C) (resid 71 and name N) 1.0 -43.7 20.0 2
+assign (resid 70 and name C) (resid 71 and name N
+	(resid 71 and name CA) (resid 71 and name C) 1.0 -70.6 22.1 2
+assign (resid 71 and name N) (resid 71 and name CA
+	(resid 71 and name C) (resid 72 and name N) 1.0 -37.6 20.0 2
+assign (resid 71 and name C) (resid 72 and name N
+	(resid 72 and name CA) (resid 72 and name C) 1.0 -66.1 20.0 2
+assign (resid 72 and name N) (resid 72 and name CA
+	(resid 72 and name C) (resid 73 and name N) 1.0 -42.9 20.0 2
+assign (resid 72 and name C) (resid 73 and name N
+	(resid 73 and name CA) (resid 73 and name C) 1.0 -68.5 20.0 2
+assign (resid 73 and name N) (resid 73 and name CA
+	(resid 73 and name C) (resid 74 and name N) 1.0 -24.95 22.75 2
+assign (resid 76 and name C) (resid 77 and name N
+	(resid 77 and name CA) (resid 77 and name C) 1.0 -95.9 32.0 2
+assign (resid 77 and name N) (resid 77 and name CA
+	(resid 77 and name C) (resid 78 and name N) 1.0 121.7 26.6 2
+assign (resid 77 and name C) (resid 78 and name N
+	(resid 78 and name CA) (resid 78 and name C) 1.0 -118.85 28.15 2
+assign (resid 78 and name N) (resid 78 and name CA
+	(resid 78 and name C) (resid 79 and name N) 1.0 132.4 20.0 2
+assign (resid 78 and name C) (resid 79 and name N
+	(resid 79 and name CA) (resid 79 and name C) 1.0 -112.1 33.2 2
+assign (resid 79 and name N) (resid 79 and name CA
+	(resid 79 and name C) (resid 80 and name N) 1.0 138.0 20.0 2
+assign (resid 79 and name C) (resid 80 and name N
+	(resid 80 and name CA) (resid 80 and name C) 1.0 -117.1 34.0 2
+assign (resid 80 and name N) (resid 80 and name CA
+	(resid 80 and name C) (resid 81 and name N) 1.0 125.5 20.0 2
+assign (resid 80 and name C) (resid 81 and name N
+	(resid 81 and name CA) (resid 81 and name C) 1.0 -120.65 24.85 2
+assign (resid 81 and name N) (resid 81 and name CA
+	(resid 81 and name C) (resid 82 and name N) 1.0 134.65 21.55 2
+assign (resid 81 and name C) (resid 82 and name N
+	(resid 82 and name CA) (resid 82 and name C) 1.0 -114.9 46.8 2
+assign (resid 82 and name N) (resid 82 and name CA
+	(resid 82 and name C) (resid 83 and name N) 1.0 135.6 21.6 2
+assign (resid 82 and name C) (resid 83 and name N
+	(resid 83 and name CA) (resid 83 and name C) 1.0 -111.35 32.35 2
+assign (resid 83 and name N) (resid 83 and name CA
+	(resid 83 and name C) (resid 84 and name N) 1.0 133.35 27.25 2
+assign (resid 86 and name C) (resid 87 and name N
+	(resid 87 and name CA) (resid 87 and name C) 1.0 -66.65 40.45 2
+assign (resid 87 and name N) (resid 87 and name CA
+	(resid 87 and name C) (resid 88 and name N) 1.0 -25.25 35.75 2
+assign (resid 87 and name C) (resid 88 and name N
+	(resid 88 and name CA) (resid 88 and name C) 1.0 -66.8 20.0 2
+assign (resid 88 and name N) (resid 88 and name CA
+	(resid 88 and name C) (resid 89 and name N) 1.0 -38.7 20.0 2
+assign (resid 88 and name C) (resid 89 and name N
+	(resid 89 and name CA) (resid 89 and name C) 1.0 -66.5 21.5 2
+assign (resid 89 and name N) (resid 89 and name CA
+	(resid 89 and name C) (resid 90 and name N) 1.0 -37.7 20.0 2
+assign (resid 89 and name C) (resid 90 and name N
+	(resid 90 and name CA) (resid 90 and name C) 1.0 -68.45 33.05 2
+assign (resid 90 and name N) (resid 90 and name CA
+	(resid 90 and name C) (resid 91 and name N) 1.0 -36.8 35.1 2
+assign (resid 90 and name C) (resid 91 and name N
+	(resid 91 and name CA) (resid 91 and name C) 1.0 -65.8 20.0 2
+assign (resid 91 and name N) (resid 91 and name CA
+	(resid 91 and name C) (resid 92 and name N) 1.0 -38.5 20.0 2
+assign (resid 91 and name C) (resid 92 and name N
+	(resid 92 and name CA) (resid 92 and name C) 1.0 -63.2 20.0 2
+assign (resid 92 and name N) (resid 92 and name CA
+	(resid 92 and name C) (resid 93 and name N) 1.0 -41.9 20.0 2
+assign (resid 92 and name C) (resid 93 and name N
+	(resid 93 and name CA) (resid 93 and name C) 1.0 -67.0 20.0 2
+assign (resid 93 and name N) (resid 93 and name CA
+	(resid 93 and name C) (resid 94 and name N) 1.0 -41.5 20.0 2
+assign (resid 93 and name C) (resid 94 and name N
+	(resid 94 and name CA) (resid 94 and name C) 1.0 -59.7 20.0 2
+assign (resid 94 and name N) (resid 94 and name CA
+	(resid 94 and name C) (resid 95 and name N) 1.0 -45.2 20.0 2
+assign (resid 94 and name C) (resid 95 and name N
+	(resid 95 and name CA) (resid 95 and name C) 1.0 -62.0 20.0 2
+assign (resid 95 and name N) (resid 95 and name CA
+	(resid 95 and name C) (resid 96 and name N) 1.0 -44.4 20.0 2
+assign (resid 95 and name C) (resid 96 and name N
+	(resid 96 and name CA) (resid 96 and name C) 1.0 -63.9 20.0 2
+assign (resid 96 and name N) (resid 96 and name CA
+	(resid 96 and name C) (resid 97 and name N) 1.0 -39.9 20.0 2
+assign (resid 96 and name C) (resid 97 and name N
+	(resid 97 and name CA) (resid 97 and name C) 1.0 -70.6 25.5 2
+assign (resid 97 and name N) (resid 97 and name CA
+	(resid 97 and name C) (resid 98 and name N) 1.0 -37.7 20.0 2
+assign (resid 97 and name C) (resid 98 and name N
+	(resid 98 and name CA) (resid 98 and name C) 1.0 -66.2 20.0 2
+assign (resid 98 and name N) (resid 98 and name CA
+	(resid 98 and name C) (resid 99 and name N) 1.0 -40.1 20.0 2
+assign (resid 98 and name C) (resid 99 and name N
+	(resid 99 and name CA) (resid 99 and name C) 1.0 -63.6 20.0 2
+assign (resid 99 and name N) (resid 99 and name CA
+	(resid 99 and name C) (resid 100 and name N) 1.0 -40.2 23.5 2
+assign (resid 102 and name C) (resid 103 and name N
+	(resid 103 and name CA) (resid 103 and name C) 1.0 -95.65 30.15 2
+assign (resid 103 and name N) (resid 103 and name CA
+	(resid 103 and name C) (resid 104 and name N) 1.0 118.95 23.85 2
+assign (resid 103 and name C) (resid 104 and name N
+	(resid 104 and name CA) (resid 104 and name C) 1.0 -115.55 21.55 2
+assign (resid 104 and name N) (resid 104 and name CA
+	(resid 104 and name C) (resid 105 and name N) 1.0 137.05 26.35 2
+assign (resid 104 and name C) (resid 105 and name N
+	(resid 105 and name CA) (resid 105 and name C) 1.0 -126.4 35.3 2
+assign (resid 105 and name N) (resid 105 and name CA
+	(resid 105 and name C) (resid 106 and name N) 1.0 144.6 34.0 2
+assign (resid 105 and name C) (resid 106 and name N
+	(resid 106 and name CA) (resid 106 and name C) 1.0 -120.6 22.0 2
+assign (resid 106 and name N) (resid 106 and name CA
+	(resid 106 and name C) (resid 107 and name N) 1.0 147.6 20.0 2
+assign (resid 106 and name C) (resid 107 and name N
+	(resid 107 and name CA) (resid 107 and name C) 1.0 -131.7 40.0 2
+assign (resid 107 and name N) (resid 107 and name CA
+	(resid 107 and name C) (resid 108 and name N) 1.0 153.0 31.9 2
+assign (resid 109 and name C) (resid 110 and name N
+	(resid 110 and name CA) (resid 110 and name C) 1.0 -60.1 20.0 2
+assign (resid 110 and name N) (resid 110 and name CA
+	(resid 110 and name C) (resid 111 and name N) 1.0 -37.8 20.0 2
+assign (resid 110 and name C) (resid 111 and name N
+	(resid 111 and name CA) (resid 111 and name C) 1.0 -67.2 20.0 2
+assign (resid 111 and name N) (resid 111 and name CA
+	(resid 111 and name C) (resid 112 and name N) 1.0 -39.6 20.0 2
+assign (resid 111 and name C) (resid 112 and name N
+	(resid 112 and name CA) (resid 112 and name C) 1.0 -64.6 20.0 2
+assign (resid 112 and name N) (resid 112 and name CA
+	(resid 112 and name C) (resid 113 and name N) 1.0 -44.4 20.0 2
+assign (resid 112 and name C) (resid 113 and name N
+	(resid 113 and name CA) (resid 113 and name C) 1.0 -61.6 20.0 2
+assign (resid 113 and name N) (resid 113 and name CA
+	(resid 113 and name C) (resid 114 and name N) 1.0 -39.7 20.0 2
+assign (resid 113 and name C) (resid 114 and name N
+	(resid 114 and name CA) (resid 114 and name C) 1.0 -66.6 20.0 2
+assign (resid 114 and name N) (resid 114 and name CA
+	(resid 114 and name C) (resid 115 and name N) 1.0 -38.5 20.0 2
+assign (resid 114 and name C) (resid 115 and name N
+	(resid 115 and name CA) (resid 115 and name C) 1.0 -62.4 20.0 2
+assign (resid 115 and name N) (resid 115 and name CA
+	(resid 115 and name C) (resid 116 and name N) 1.0 -45.3 20.0 2
+assign (resid 115 and name C) (resid 116 and name N
+	(resid 116 and name CA) (resid 116 and name C) 1.0 -63.0 20.0 2
+assign (resid 116 and name N) (resid 116 and name CA
+	(resid 116 and name C) (resid 117 and name N) 1.0 -47.0 20.0 2
+assign (resid 116 and name C) (resid 117 and name N
+	(resid 117 and name CA) (resid 117 and name C) 1.0 -63.0 20.0 2
+assign (resid 117 and name N) (resid 117 and name CA
+	(resid 117 and name C) (resid 118 and name N) 1.0 -47.3 20.0 2
+assign (resid 117 and name C) (resid 118 and name N
+	(resid 118 and name CA) (resid 118 and name C) 1.0 -60.8 20.0 2
+assign (resid 118 and name N) (resid 118 and name CA
+	(resid 118 and name C) (resid 119 and name N) 1.0 -40.8 20.0 2
+assign (resid 118 and name C) (resid 119 and name N
+	(resid 119 and name CA) (resid 119 and name C) 1.0 -62.6 20.0 2
+assign (resid 119 and name N) (resid 119 and name CA
+	(resid 119 and name C) (resid 120 and name N) 1.0 -41.2 24.0 2
+assign (resid 119 and name C) (resid 120 and name N
+	(resid 120 and name CA) (resid 120 and name C) 1.0 -68.8 24.1 2
+assign (resid 120 and name N) (resid 120 and name CA
+	(resid 120 and name C) (resid 121 and name N) 1.0 -35.25 27.75 2
+assign (resid 120 and name C) (resid 121 and name N
+	(resid 121 and name CA) (resid 121 and name C) 1.0 -63.5 20.0 2
+assign (resid 121 and name N) (resid 121 and name CA
+	(resid 121 and name C) (resid 122 and name N) 1.0 -40.9 20.0 2
+assign (resid 121 and name C) (resid 122 and name N
+	(resid 122 and name CA) (resid 122 and name C) 1.0 -62.8 20.0 2
+assign (resid 122 and name N) (resid 122 and name CA
+	(resid 122 and name C) (resid 123 and name N) 1.0 -42.7 20.0 2
+assign (resid 122 and name C) (resid 123 and name N
+	(resid 123 and name CA) (resid 123 and name C) 1.0 -66.5 20.0 2
+assign (resid 123 and name N) (resid 123 and name CA
+	(resid 123 and name C) (resid 124 and name N) 1.0 -38.15 20.15 2
+assign (resid 123 and name C) (resid 124 and name N
+	(resid 124 and name CA) (resid 124 and name C) 1.0 -65.9 20.0 2
+assign (resid 124 and name N) (resid 124 and name CA
+	(resid 124 and name C) (resid 125 and name N) 1.0 -30.9 20.0 2
+assign (resid 124 and name C) (resid 125 and name N
+	(resid 125 and name CA) (resid 125 and name C) 1.0 -63.3 20.0 2
+assign (resid 125 and name N) (resid 125 and name CA
+	(resid 125 and name C) (resid 126 and name N) 1.0 -37.75 20.05 2
+assign (resid 125 and name C) (resid 126 and name N
+	(resid 126 and name CA) (resid 126 and name C) 1.0 -63.4 20.0 2
+assign (resid 126 and name N) (resid 126 and name CA
+	(resid 126 and name C) (resid 127 and name N) 1.0 -38.1 20.0 2
+assign (resid 126 and name C) (resid 127 and name N
+	(resid 127 and name CA) (resid 127 and name C) 1.0 -63.8 20.0 2
+assign (resid 127 and name N) (resid 127 and name CA
+	(resid 127 and name C) (resid 128 and name N) 1.0 -39.55 47.45 2
+assign (resid 127 and name C) (resid 128 and name N
+	(resid 128 and name CA) (resid 128 and name C) 1.0 -77.3 39.6 2
+assign (resid 128 and name N) (resid 128 and name CA
+	(resid 128 and name C) (resid 129 and name N) 1.0 -31.1 33.6 2

@@ -1,0 +1,29 @@
+1. Conformationally restricting restraints
+---------------------------------------------
+
+1.1 Distance restraints 
+-------------------------
+
+	Total                                                         =  2993 (100.0%)
+	Intraresidue  |i-j|=0                                         =   628 (20.98%)
+	Sequential |i-j|=1                                            =   699 (23.35%)
+	Medium range  |i-j|>1 and |i-j|<5                             =   519 (17.34%)
+	Long range |i-j|>=5                                           =  1147 (38.32%)
+	Hydrogen-bond                                                 =    50 (1.67%)
+	Dihedral angle restraints                                     =   112
+	No of restraints per residue                                  = 27.97
+	No of long-range restraints per residue                       = 10.72
+
+
+1.2 Residual restraint violations 
+----------------------------------
+
+	1.2.1 Average no. of distance violations per structure 
+	-------------------------------------------------------
+	0.1-0.2A                                                      =  0.27
+	0.2-0.5A                                                      =  0.01(max=0.43)
+	>0.5A                                                         =   0.0
+	1.2.2 Average no. of dihedral angle violations per structure 
+	------------------------------------------------------------
+	0-10                                                          =  0.05(max=7.26)
+	>10                                                           =  0.01
