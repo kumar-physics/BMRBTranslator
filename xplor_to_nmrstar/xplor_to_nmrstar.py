@@ -67,9 +67,11 @@ class xplor_to_nmrstar(object):
                 cols = dat.get_tag_names()
                 id = cols.index("_Gen_dist_constraint.ID")
                 seq1 = cols.index("_Gen_dist_constraint.Comp_index_ID_1")
+                res1 = cols.index("_Gen_dist_constraint.Comp_ID_1")
                 atm1 = cols.index("_Gen_dist_constraint.Atom_ID_1")
                 seq2 = cols.index("_Gen_dist_constraint.Comp_index_ID_2")
                 atm2 = cols.index("_Gen_dist_constraint.Atom_ID_2")
+                res2 = cols.index("_Gen_dist_constraint.Comp_ID_2")
                 t_val = cols.index("_Gen_dist_constraint.Target_val")
                 lb = cols.index("_Gen_dist_constraint.Distance_lower_bound_val")
                 ub = cols.index("_Gen_dist_constraint.Distance_upper_bound_val")
@@ -86,15 +88,22 @@ class xplor_to_nmrstar(object):
                         if rid != '':
                             pseudo1 = self.get_pseudo_atom(atom1)
                             pseudo2 = self.get_pseudo_atom(atom2)
+
                             if pseudo1 == "H":
                                 pseudo1 = "HN"
                             if pseudo2 == "H":
                                 pseudo2 = "HN"
+                            if r1=="LEU" and pseudo1 == "HB2":
+                                pseudo1="HB1"
+                            if r1=="LEU" and pseudo1 == "HB3":
+                                pseudo1="HB2"
                             fout.write('assign (resid {} and name {}) '
                                        'resid {} and name {}) {} {} {}\n'.format(sq1,pseudo1,sq2,pseudo2,d,dm,dp))
                            # print (row[id], self.get_psudo_atom(atom1),self.get_psudo_atom(atom2),d,dm,dp)
                         atom1 = [row[atm1]]
                         atom2 = [row[atm2]]
+                        r1=row[res1]
+                        r2=row[res2]
                         sq1 = row[seq1]
                         sq2 = row[seq2]
                         d = row[t_val]
