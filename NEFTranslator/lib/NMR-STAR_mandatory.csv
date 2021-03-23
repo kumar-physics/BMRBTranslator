@@ -6,7 +6,6 @@
 # This file contains equivalent NMR-STAR tags of of NEF_mandatory.csv
 # Author : Kumaran Baskaran(BMRB)
 ##############################################################
-# 10-Mar-2020  M. Yokochi - add support for _Audit loop in NEF (DAOTHER-6327)
 #Saveframe categories
 entry_information,yes
 Related_entries,no
@@ -29,7 +28,6 @@ Spectral_dim_transfer,yes
 Peak_row_format,no
 peak_constraint_links,no
 Peak_constraint_link,no
-Audit,no
 #Tags
 _Entry.Sf_category,yes
 _Entry.Sf_framecode,yes
@@ -167,7 +165,7 @@ _Spectral_peak_list.Experiment_class,no
 _Spectral_peak_list.Experiment_type,no
 _Spectral_dim.ID,yes
 _Spectral_dim.Sweep_width_units,yes
-_Spectral_dim.Axis_code,no
+_Spectral_dim.Axis_code,yes
 _Spectral_dim.Spectrometer_frequency,no
 _Spectral_dim.Sweep_width,no
 _Spectral_dim.Value_first_point,no
@@ -280,7 +278,3 @@ _Peak_constraint_link.Spectral_Peak_list_Sf_framecode,yes
 _Peak_constraint_link.Peak_ID,yes
 _Peak_constraint_link.Constraint_Sf_framecode,yes
 _Peak_constraint_link.Constraint_ID,yes
-_Audit.Revision_ID,yes
-_Audit.Creation_date,no
-_Audit.Creation_method,no
-_Audit.Update_record,no

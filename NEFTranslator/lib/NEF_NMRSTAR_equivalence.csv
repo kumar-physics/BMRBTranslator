@@ -1,19 +1,17 @@
 ###########################################################################################
 #File       : NEF_NMRSTAR_equivalence.csv
-#Version    : 1.0
-#Date       : Jan 09,2017
-#Author     : Kumaran Baskaran
+#Version    : 1.0 
+#Date       : Jan 09, 2017
+#Author     : Kumaran Baskaran   
 #Email      : kbaskaran@bmrb.wisc.edu
 ############################################################################################
-#   This CSV file maps NEF v1.0  tags to NMR-STAR v3.2.0.1
-#   The software specific data i.e tags and data which are not part of the standard NEF v1.0 dictionary will be stored in Details tag in relevant saveframes in NMR-STAR as a text block.
+#   This CSV file maps NEF v1.0  tags to NMR-STAR v3.2.0.1  
+#   The software specific data i.e tags and data which are not part of the standard NEF v1.0 dictionary will be stored in Details tag in relevant saveframes in NMR-STAR as a text block. 
 #   CSV explanation
 #   First Column : NEF saveframe/loop/tag
 #   Second Column : NMR-STAR saveframe/loop/tag (author tags i.e data copied from a NEF tag goes here ; example : HBx)
-#   Third Column : NMR-STAR saveframe/loop/tag (translated data goes here ; example HB2)
+#   Third Column : NMR-STAR saveframe/loop/tag (tanslated data goes here ; example HB2)
 ############################################################################################
-# 08-Jul-2020  M. Yokochi - add support for _Gen_dist_constraint.Distance_val, _RDC_constraint.RDC_val, and _RDC_constraint.RDC_val_err (DAOTHER-5926)
-# 10-Mar-2020  M. Yokochi - add support for _audit loop in NEF (DAOTHER-6327)
 #Saveframes and loops
 nef_nmr_meta_data,entry_information,entry_information
 nef_molecular_system,assembly,assembly
@@ -36,7 +34,6 @@ nef_spectrum_dimension,Spectral_dim,Spectral_dim
 nef_spectrum_dimension_transfer,Spectral_dim_transfer,Spectral_dim_transfer
 nef_peak,Peak_row_format,Peak_row_format
 nef_peak_restraint_link,Peak_constraint_link,Peak_constraint_link
-audit,Audit,Audit
 #tags
 _nef_program_script.program_name,_Software_applied_methods.Software_name,_Software_applied_methods.Software_name
 _nef_program_script.script_name,_Software_applied_methods.Script_name,_Software_applied_methods.Script_name
@@ -77,12 +74,12 @@ _nef_covalent_links.atom_name_2,_Bond.Auth_atom_ID_2,_Bond.Atom_ID_2
 _nef_chemical_shift_list.sf_category,_Assigned_chem_shift_list.Sf_category,_Assigned_chem_shift_list.Sf_category
 _nef_chemical_shift_list.sf_framecode,_Assigned_chem_shift_list.Sf_framecode,_Assigned_chem_shift_list.Sf_framecode
 _nef_chemical_shift_list.atom_chemical_shift_units,,
+_nef_chemical_shift.isotope_number,_Atom_chem_shift.Atom_isotope_number,_Atom_chem_shift.Atom_isotope_number
+_nef_chemical_shift.element,_Atom_chem_shift.Atom_type,_Atom_chem_shift.Atom_type
 _nef_chemical_shift.chain_code,_Atom_chem_shift.Auth_asym_ID,_Atom_chem_shift.Entity_assembly_ID
 _nef_chemical_shift.sequence_code,_Atom_chem_shift.Auth_seq_ID,_Atom_chem_shift.Comp_index_ID
 _nef_chemical_shift.residue_name,_Atom_chem_shift.Auth_comp_ID,_Atom_chem_shift.Comp_ID
 _nef_chemical_shift.atom_name,_Atom_chem_shift.Auth_atom_ID,_Atom_chem_shift.Atom_ID
-_nef_chemical_shift.element,_Atom_chem_shift.Atom_type,_Atom_chem_shift.Atom_type
-_nef_chemical_shift.isotope_number,_Atom_chem_shift.Atom_isotope_number,_Atom_chem_shift.Atom_isotope_number
 _nef_chemical_shift.value,_Atom_chem_shift.Val,_Atom_chem_shift.Val
 _nef_chemical_shift.value_uncertainty,_Atom_chem_shift.Val_err,_Atom_chem_shift.Val_err
 _nef_distance_restraint_list.sf_category,_Gen_dist_constraint_list.Sf_category,_Gen_dist_constraint_list.Sf_category
@@ -102,7 +99,6 @@ _nef_distance_restraint.residue_name_2,_Gen_dist_constraint.Auth_comp_ID_2,_Gen_
 _nef_distance_restraint.atom_name_2,_Gen_dist_constraint.Auth_atom_ID_2,_Gen_dist_constraint.Atom_ID_2
 _nef_distance_restraint.weight,_Gen_dist_constraint.Weight,_Gen_dist_constraint.Weight
 _nef_distance_restraint.target_value,_Gen_dist_constraint.Target_val,_Gen_dist_constraint.Target_val
-_nef_distance_restraint.target_value,_Gen_dist_constraint.Distance_val,_Gen_dist_constraint.Distance_val
 _nef_distance_restraint.target_value_uncertainty,_Gen_dist_constraint.Target_val_uncertainty,_Gen_dist_constraint.Target_val_uncertainty
 _nef_distance_restraint.lower_linear_limit,_Gen_dist_constraint.Lower_linear_limit,_Gen_dist_constraint.Lower_linear_limit
 _nef_distance_restraint.lower_limit,_Gen_dist_constraint.Distance_lower_bound_val,_Gen_dist_constraint.Distance_lower_bound_val
@@ -161,9 +157,7 @@ _nef_rdc_restraint.residue_name_2,_RDC_constraint.Auth_comp_ID_2,_RDC_constraint
 _nef_rdc_restraint.atom_name_2,_RDC_constraint.Auth_atom_ID_2,_RDC_constraint.Atom_ID_2
 _nef_rdc_restraint.weight,_RDC_constraint.Weight,_RDC_constraint.Weight
 _nef_rdc_restraint.target_value,_RDC_constraint.Target_value,_RDC_constraint.Target_value
-_nef_rdc_restraint.target_value,_RDC_constraint.RDC_val,_RDC_constraint.RDC_val
 _nef_rdc_restraint.target_value_uncertainty,_RDC_constraint.Target_value_uncertainty,_RDC_constraint.Target_value_uncertainty
-_nef_rdc_restraint.target_value_uncertainty,_RDC_constraint.RDC_val_err,_RDC_constraint.RDC_val_err
 _nef_rdc_restraint.lower_linear_limit,_RDC_constraint.RDC_lower_linear_limit,_RDC_constraint.RDC_lower_linear_limit
 _nef_rdc_restraint.lower_limit,_RDC_constraint.RDC_lower_bound,_RDC_constraint.RDC_lower_bound
 _nef_rdc_restraint.upper_limit,_RDC_constraint.RDC_upper_bound,_RDC_constraint.RDC_upper_bound
@@ -190,7 +184,7 @@ _nef_spectrum_dimension_transfer.dimension_2,_Spectral_dim_transfer.Spectral_dim
 _nef_spectrum_dimension_transfer.transfer_type,_Spectral_dim_transfer.Type,_Spectral_dim_transfer.Type
 _nef_spectrum_dimension_transfer.is_indirect,_Spectral_dim_transfer.Indirect,_Spectral_dim_transfer.Indirect
 _nef_peak.index,_Peak_row_format.Index_ID,_Peak_row_format.Index_ID
-_nef_peak.peak_id,_Peak_row_format.ID,_Peak_row_format.ID
+_nef_peak.peak_id,_Peak_row_format.Peak_ID,_Peak_row_format.Peak_ID
 _nef_peak.volume,_Peak_row_format.Volume,_Peak_row_format.Volume
 _nef_peak.volume_uncertainty,_Peak_row_format.Volume_uncertainty,_Peak_row_format.Volume_uncertainty
 _nef_peak.height,_Peak_row_format.Height,_Peak_row_format.Height
@@ -291,7 +285,3 @@ _nef_peak_restraint_link.nmr_spectrum_id,_Peak_constraint_link.Spectral_Peak_lis
 _nef_peak_restraint_link.peak_id,_Peak_constraint_link.Peak_ID,_Peak_constraint_link.Peak_ID
 _nef_peak_restraint_link.restraint_list_id,_Peak_constraint_link.Constraint_Sf_framecode,_Peak_constraint_link.Constraint_Sf_framecode
 _nef_peak_restraint_link.restraint_id,_Peak_constraint_link.Constraint_ID,_Peak_constraint_link.Constraint_ID
-_audit.revision_id,_Audit.Revision_ID,_Audit.Revision_ID
-_audit.creation_date,_Audit.Creation_date,_Audit.Creation_date
-_audit.creation_method,_Audit.Creation_method,_Audit.Creation_method
-_audit.update_record,_Audit.Update_record,_Audit.Update_record

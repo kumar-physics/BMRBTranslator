@@ -5,7 +5,6 @@
 # This is used to validate NEF file
 # Author : Kumaran Baskaran(BMRB)
 ##############################################################
-# 10-Mar-2020  M. Yokochi - add support for _audit loop in NEF (DAOTHER-6327)
 #Saveframe categories
 nef_nmr_meta_data,yes
 nef_related_entries,no
@@ -28,7 +27,6 @@ nef_spectrum_dimension_transfer,yes
 nef_peak,no
 nef_peak_restraint_links,no
 nef_peak_restraint_link,no
-audit,no
 #Tags
 _nef_nmr_meta_data.sf_category,yes
 _nef_nmr_meta_data.sf_framecode,yes
@@ -279,7 +277,3 @@ _nef_peak_restraint_link.nmr_spectrum_id,yes
 _nef_peak_restraint_link.peak_id,yes
 _nef_peak_restraint_link.restraint_list_id,yes
 _nef_peak_restraint_link.restraint_id,yes
-_audit.revision_id,yes
-_audit.creation_date,no
-_audit.creation_method,no
-_audit.update_record,no
