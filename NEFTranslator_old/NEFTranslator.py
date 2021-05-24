@@ -1435,7 +1435,6 @@ class NEFTranslator(object):
 
 if __name__ == "__main__":
     fname = sys.argv[1]
-    #fname = '/Users/kumaran/hongyong/test.nef'
     bt = NEFTranslator()
     print (bt.check_mandatory_tags(fname,file_type='NEF'))
     bt.nef_to_nmrstar(nef_file=fname)
